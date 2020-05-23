@@ -5,7 +5,7 @@ const User = require('../models/User');
 const users = require('./users')
 const mongoose = require('mongoose');
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/ironplate'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/care-dash'
 console.log('Connecting DB to ', MONGODB_URI)
 
 mongoose
