@@ -64,21 +64,36 @@ app.get('/', (req, res) => {
 // })
 // Register a new user profile
 app.post('/register', (req, res) => {
-    User.register({email: req.body.email}, req.body.password, (err, user)=>{
+    User.register({ username: req.body.username}, req.body.password, (err, user)=>{
         if(err) {
             console.log(err)
             
             res.redirect("/register");
         }
         else{
-            passport.authenticate("local")(req, rest, ()=>{
-                res.redirect("/profile")
+            passport.authenticate("local")(req, res, ()=>{
+                // res.redirect("/profile")
+                res.send('Success!')
             })
         }
     })
 })
 
-app.post('/login', (req, res)=>{
+app.post('/login', (req, res) => {
+    const user = new User({
+       username: req.body.username,
+       password: req.body.password
+    })
+    req.login(user, (err)=>{
+        if(err) console.log(err)
+        else {
+            passport.authenticate('local')
+            res.send('You Good')
+        }
+    })
+})
+
+app.post('/profile', (req, res)=>{
   
 })
 // Search route
