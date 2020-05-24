@@ -64,18 +64,27 @@ app.get('/', (req, res) => {
 // })
 // Register a new user profile
 app.post('/register', (req, res) => {
-    User.register({ username: req.body.username}, req.body.password, (err, user)=>{
-        if(err) {
-            console.log(err)
+    // User.register({ username: req.body.username}, req.body.password, (err, user)=>{
+    //     if(err) {
+    //         console.log(err)
             
-            res.redirect("/register");
-        }
-        else{
-            passport.authenticate("local")(req, res, ()=>{
-                // res.redirect("/profile")
-                res.send('Success!')
-            })
-        }
+    //         res.redirect("/register");
+    //     }
+    //     else{
+            // passport.authenticate("local")(req, res, ()=>{
+            //     // res.redirect("/profile")
+            //     res.send('Success!')
+            // })
+    //     }
+    // })
+    User.register({ username: req.body.username }, req.body.password)
+        .then(passport.authenticate("local", (req, res, () => {
+            // res.redirect("/profile")
+            res.send('Success!')
+        }))
+        ).catch(err => {
+        console.log(err)
+        res.redirect("/register");
     })
 })
 
@@ -86,6 +95,7 @@ app.post('/login', (req, res) => {
     })
     req.login(user, (err)=>{
         if(err) console.log(err)
+        
         else {
             passport.authenticate('local')
             res.send('You Good')
