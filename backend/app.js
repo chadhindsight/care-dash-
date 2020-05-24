@@ -58,9 +58,10 @@ app.get('/', (req, res) => {
     res.send("Boot")
 })
 
-app.get('/register', (req,res)=>{
+// This commented out GET route might not need to be done here
+// app.get('/register', (req,res)=>{
 
-})
+// })
 // Register a new user profile
 app.post('/register', (req, res) => {
     User.register({email: req.body.email}, req.body.password, (err, user)=>{
@@ -71,8 +72,7 @@ app.post('/register', (req, res) => {
         }
         else{
             passport.authenticate("local")(req, rest, ()=>{
-                // change this reirect to json of user info?
-                // res.redirect("/")
+                res.redirect("/profile")
             })
         }
     })

@@ -2,7 +2,7 @@ const csvFilePath = './drugsComTest_raw.csv'
 const csv = require('csvtojson')
 const Medicine = require('../models/Medicine');
 const User = require('../models/User');
-const users = require('./users')
+// const users = require('./users')
 const mongoose = require('mongoose');
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/care-dash'
