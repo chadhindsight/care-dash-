@@ -7,14 +7,21 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require('express-session')
 const passport = require('passport')
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./models/User')
 const Medicine = require('./models/Medicine')
 const cors = require("cors");
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const app = express();
 // Middleware Setup
-app.use(cors());
+app.use(cors({
+  origin: function(origin, callback){
+    return callback(null, true);
+  },
+  optionsSuccessStatus: 200,
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -52,35 +59,47 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.CLIENT_ID,
-//     clientSecret: process.env.CLIENT_SECRET,
-//     callbackURL: "http://localhost:3000/auth/google/secrets",
-//     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-// },
-//     function (accessToken, refreshToken, profile, cb) {
-//         console.log(profile);
+// GOOGLE OAUTH STUFF
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "http://localhost:5000/auth/google/care-dash",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+},
+    function (accessToken, refreshToken, profile, cb) {
+        console.log(profile);
 
-//         User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//             return cb(err, user);
-//         });
-//     }
-// ));
-console.log(process.env.CLIENT_SECRET)
+        User.findOrCreate({ googleId: profile.id }, function (err, user) {
+            return cb(err, user);
+        });
+    }
+));
 
 // ROUTES
 // Home Route
 app.get('/', (req, res) => {
-    res.send("Boot")
+    res.send('deez')
 })
 
-// This commented out GET route might not need to be done here
-// app.get('/register', (req,res)=>{
+app.get('/auth/google', (req, res)=>{
+    passport.authenticate('google', {scope: ['profile']})
+})
 
-// })
-// Register a new user profile
+app.get('/auth/google/care-dash', (req, res) => {
+    passport.authenticate('google', {failureRedirect: '/login'}).then(() => {
+        res.redirect('/profile')
+    })
+})
+
+// Register a new user profile and send them to that profile page
 app.post('/register', (req, res) => {
-    User.register({ username: req.body.username }, req.body.password)
+
+    User.register({
+        username: req.body.username, 
+        fullname: req.body.fullname,
+        primaryPharmacy: req.body.primaryPharmacy,
+        conditions: req.body.conditions
+         }, req.body.password)
         .then(passport.authenticate("local", (req, res, () => {
             // res.redirect("/profile")
             res.send('Success!')
@@ -106,13 +125,13 @@ app.post('/login', (req, res) => {
     })
 })
 // Logout the user
-app.get('/logout', (req, res)=>{
+app.get('/logout', (req, res)=> {
     req.logout();
     res.status(200).json({ msg: 'Logged out' });
 })
 
 // View User Profile
-app.post('/profile', (req, res)=>{
+app.post('/profile', (req, res)=> {
   
 })
 // Search route
@@ -120,6 +139,8 @@ app.get('/searchsearch/:name', (req, res, next) =>{
 
 })
 //Cart route
-app.get('/cart')
+app.get('/cart', (req, res, next) => {
+
+})
 
 module.exports = app;
