@@ -9,6 +9,10 @@ process.env.NODE_ENV === 'production'
 const service = axios.create({ withCredentials: true, baseURL });
 // register, login, logout
 const actions = {
+    // MAYBE DELETE LATER
+    home: async() =>{
+        return await service.get('/') 
+    },
     register: async(userInfo) => {
         return await service.post('/register', userInfo)
     },
