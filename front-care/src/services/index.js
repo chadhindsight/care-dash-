@@ -7,19 +7,16 @@ process.env.NODE_ENV === 'production'
     : (baseURL = 'http://localhost:5000');
 
 const service = axios.create({ withCredentials: true, baseURL });
+
 // register, login, logout
 const actions = {
-    // MAYBE DELETE LATER
-    home: async() =>{
-        return await service.get('/') 
-    },
-    register: async(userInfo) => {
-        return await service.post('/register', userInfo)
+    register: async(user) => {
+        return await service.post('/register', user)
     },
     login: async (userInfo) => {
         return await service.post('/login', userInfo)
     },
-    logout: async (userInfo) => {
+    logout: async () => {
         return await service.get('/logout')
     },
     showUser: async (userInfo) => {
