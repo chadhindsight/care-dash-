@@ -91,7 +91,7 @@ app.get('/auth/google/care-dash', (req, res) => {
     })
 })
 
-// Register a new user profile and send them to that profile page
+// Register a new user profile and send them to that profile page...maybe?
 app.post('/register', (req, res) => {
 
     User.register({
@@ -101,8 +101,11 @@ app.post('/register', (req, res) => {
         conditions: req.body.conditions
          }, req.body.password)
         .then(passport.authenticate("local", (req, res, () => {
-            // res.redirect("/profile")
-            res.send('Success!')
+            
+            res.json({
+                fullname: req.body.fullname, primaryPharmacy: req.body.primaryPharmacy,
+                conditions: req.body.conditions
+            })
         }))
         ).catch(err => {
         console.log(err)
@@ -120,7 +123,10 @@ app.post('/login', (req, res) => {
         
         else {
             passport.authenticate('local')
-            res.send('You Good')
+            User.find({"username": req.body.username} ).then((person) => {
+                console.log(person)
+                res.json(person[0]);
+            });
         }
     })
 })
@@ -134,9 +140,12 @@ app.get('/logout', (req, res)=> {
 app.post('/profile', (req, res)=> {
   
 })
-// Search route
-app.get('/searchsearch/:name', (req, res, next) =>{
 
+// Search route
+app.get('/search/?name', (req, res, next) => {
+    //DB SEARCH
+    Medicine.find({ "drugName": req.query.name, '$options': 'i'} ).then(med => res.json(med))
+    .catch(res.json('Sorry, medication not found'))
 })
 //Cart route
 app.get('/cart', (req, res, next) => {
