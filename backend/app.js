@@ -142,10 +142,12 @@ app.post('/profile', (req, res)=> {
 })
 
 // Search route
-app.get('/search/?name', (req, res, next) => {
-    //DB SEARCH
-    Medicine.find({ "drugName": req.query.name, '$options': 'i'} ).then(med => res.json(med))
-    .catch(res.json('Sorry, medication not found'))
+app.get('/search', (req, res, next) => {
+    // //DB SEARCH
+    Medicine.find( {drugName: { $regex: req.query.name, $options: 'i' }} ).then(med => res.json(med))
+    .catch(err => console.log("Cannot wait to be done"))
+
+    console.log(req.query)
 })
 //Cart route
 app.get('/cart', (req, res, next) => {
