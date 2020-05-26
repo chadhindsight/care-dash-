@@ -1,6 +1,7 @@
 import React from 'react';
 import actions from '../../services/index';
 
+// DO A GET HERE
 const Profile = (props) => {
     console.log(props.profile)
     return (

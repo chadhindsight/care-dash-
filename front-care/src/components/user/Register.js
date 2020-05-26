@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {Redirect } from 'react-router-dom';
 import actions from '../../services/index';
 
 const Register = (props) => {
@@ -12,15 +11,14 @@ const Register = (props) => {
     const [conditions, setCondition] = useState('')
     
    
-    const renderRedirect = () => <Redirect to='/profile' />
-
 // Handle submit passes the registration info to the related action and then that info  gets passed to backend DB
     const handleSubmit = async (e) => {
         e.preventDefault();
         const userInformation = { username, fullname, primaryPharmacy, password, conditions}
         await actions.register(userInformation).then(user => {
             props.setUser({ ...user.data })
-            renderRedirect()
+            console.log(user.data)
+            props.history.push("/profile")
         }).catch(err=> console.log('bad juju!'))
     }
     console.log(conditions, 'username here')
