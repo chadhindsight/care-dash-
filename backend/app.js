@@ -11,7 +11,7 @@ const User = require('./models/User')
 const Medicine = require('./models/Medicine')
 const cors = require("cors");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-
+console.log(passport.authenticate, 'auth')
 const app = express();
 // Middleware Setup
 app.use(cors({
@@ -31,10 +31,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
 // Setupt and initialize passport package
 app.use(passport.initialize());
 app.use(passport.session());
-
 mongoose
     .connect("mongodb://localhost/care-dash", { useNewUrlParser: true, useUnifiedTopology: true })
     .then((x) => {
@@ -85,10 +85,14 @@ app.get('/auth/google', (req, res)=>{
     passport.authenticate('google', {scope: ['profile']})
 })
 
-app.get('/auth/google/care-dash', (req, res) => {
-    passport.authenticate('google', {failureRedirect: '/login'}).then(() => {
-        res.redirect('/profile')
-    })
+app.get('/auth/google/care-dash', passport.authenticate('google', { scope: ['profile'] })
+, (req, res) => {
+    console.log(passport.authenticate)
+    res.json(req.user)
+    // passport.authenticate('google', {failureRedirect: '/login'}).then((stuff) => {
+    //     console.log(stuff)
+    //     res.json({stuff})
+    // }).catch(err=> console.log(err))
 })
 
 // Register a new user profile and send them to that profile page...maybe?
