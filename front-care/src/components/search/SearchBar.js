@@ -20,7 +20,7 @@ const Search = (query,meds) =>{
                             display: 'flex',
                             justifyContent: 'space-between',
                         }}>
-                        <span>{item.drugName} ({item.condition})</span>
+                        <Link to="/product"> <span>{item.drugName} ({item.condition})</span></Link>
                     </div>
                 ),
             };
@@ -48,7 +48,7 @@ const SearchBar = (props) => {
         value = JSON.parse(value)
         console.log('onSelect', value);
         setValue(value.drugName)
-        props.addToCart(value)
+        props.showInfo(value)
     };
     console.log(options)
     return (

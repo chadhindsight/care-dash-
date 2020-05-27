@@ -1,21 +1,28 @@
 import React from 'react';
 
 const Order = (props) => {
-
+    const remove =(thing) => {
+        
+    }
+    const onOrderSubmit = () => {
+        
+    }
     const displayItems = (items) => {
         return items.map(med=>{
             return (
             <>
                 <li>{med.drugName}</li>
-                <button>Place Order</button>
-                <button>Remove from Cart</button>
+                <button onClick={remove}>Remove from Cart</button>
             </>
             )
         })
     }
     return (
         <div>
-            {displayItems(props.cart)} 
+            <form>
+                {displayItems(props.cart)}
+                <button onClick={onOrderSubmit}>Place Order</button>
+            </form>
         </div>
     );
 };
