@@ -27,6 +27,9 @@ const actions = {
     },
     search: async (searchTerm) => {
         return await service.get(`/search?name=${searchTerm}`)
+    },
+    placeOrder: async(order) => {
+        return await service.post('/order', order)
     }
 }    
 export default actions;

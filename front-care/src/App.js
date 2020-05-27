@@ -35,6 +35,8 @@ class  App extends Component {
   showInfo = (product) => { this.setState({ currentProduct: product})}
 
   addToCart = item => {
+    
+    console.log(item)
     let cart = [...this.state.cart]
     cart.push(item)
     this.setState({
@@ -53,7 +55,7 @@ class  App extends Component {
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} />} />
           <Route exact path="/login" render={(props) => <Login {...props} setUser={this.setUser} />} />
-          <Route exact path="/" render={(props) => <Order {...props} cart={this.state.cart}/>} />
+          <Route exact path="/order" render={(props) => <Order {...props} cart={this.state.cart} helllo={'world'}/>} />
           <Route exact path="/signup" render={(props) => <SignUp {...props} setUser={this.setUser} />} />
           <Route exact path="/profile" render={(props) => <Profile {...props} profile={this.state} />} />
           <Route exact path="/product" render={(props) => <ProductInfo {...props} currentProduct={this.state.currentProduct} 

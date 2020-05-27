@@ -1,26 +1,27 @@
 import React from 'react';
 
 const Order = (props) => {
+    
+    // Put this method in App.js and pass it down
     const remove =(thing) => {
         
     }
     const onOrderSubmit = () => {
         
     }
-    const displayItems = (items) => {
-        return items.map(med=>{
-            return (
-            <>
-                <li>{med.drugName}</li>
-                <button onClick={remove}>Remove from Cart</button>
-            </>
-            )
-        })
-    }
+    console.log(props)
+    const displayItems = props.cart.map(med =>{
+        return (
+        <div>< li key={med.uniqueID}>{med.drugName}</li>
+            <button onClick={remove}>Remove from Cart</button>
+        </div>
+        )    
+    })
+
     return (
         <div>
             <form>
-                {displayItems(props.cart)}
+                <ul>{displayItems}</ul>
                 <button onClick={onOrderSubmit}>Place Order</button>
             </form>
         </div>
