@@ -19,11 +19,5 @@ csv()
         console.log(jsonObj);
     Medicine.insertMany(jsonObj) 
        
-        /**
-         * [
-         * 	{a:"1", b:"2", c:"3"},
-         * 	{a:"4", b:"5". c:"6"}
-         * ]
-         */
     })
-User.insertMany(users)
+// User.insertMany(users)

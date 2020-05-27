@@ -1,18 +1,17 @@
-const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
-const userSchema = new mongoose.Schema(
-    {
-        email: String,
-        name: String,
-        primaryPharmacy: String,
-        medications: [String],
-        order: [Object]
-    },
-    {
-        timestamps: true,
-        versionKey: false
-    }
-);
-userSchema.plugin(passportLocalMongoose);
+const { Schema, model } = require('mongoose');
+const PLM = require('passport-local-mongoose');
 
-module.exports = mongoose.model('User', userSchema);
+const userSchema = new Schema(
+  {
+    email: String,
+    name: String
+  },
+  {
+    timestamps: true,
+    versionKey: false
+  }
+);
+
+userSchema.plugin(PLM, { usernameField: 'email' });
+
+module.exports = model('User', userSchema);
