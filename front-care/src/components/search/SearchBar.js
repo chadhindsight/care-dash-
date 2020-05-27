@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Input, AutoComplete } from 'antd';
-import {Link} from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
 
 function getRandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
 }
 
-const searchResult = query =>
+const Search = query =>
     new Array(getRandomInt(5))
         .join('.')
         .split('.')
@@ -19,30 +20,21 @@ const searchResult = query =>
                         style={{
                             display: 'flex',
                             justifyContent: 'space-between',
-                        }}
-                    >
-                        <span>
-                            Found {query} on{' '}
-                            <Link
-                                to={`http://localhost:5000/search?q=${query}`}
-                                rel="noopener noreferrer"
-                            >
-                                {category}
-                            </Link>
-                        </span>
+                        }}>
                         <span>{getRandomInt(200, 100)} results</span>
                     </div>
                 ),
             };
         });
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const [options, setOptions] = useState([]);
 
-    const handleSearch = value => {
-        setOptions(value ? searchResult(value) : []);
+    const handleSearch = async (value) => {
+        await props.getResults(value)
+        setOptions(value ? Search(value) : []);
     };
-    // Check the selected value
+
     const onSelect = value => {
         console.log('onSelect', value);
     };
@@ -57,7 +49,7 @@ const SearchBar = () => {
             onSelect={onSelect}
             onSearch={handleSearch}
         >
-            <Input.Search size="large" placeholder="input here" enterButton />
+            {/* <Input.Search size="large" placeholder="input here" enterButton /> */}
         </AutoComplete>
     );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import actions from '../../services/index';
 
 // DO A GET HERE
 const Profile = (props) => {
@@ -7,9 +6,7 @@ const Profile = (props) => {
     return (
         <>
            Profile 
-            <h1>{props.profile.fullname}</h1>
-            <h2>{props.profile.primaryPharmacy}</h2>
-            <h3>{props.profile.conditions}</h3>
+            <h1>{props.profile.email}</h1>
         </>
     );
 };

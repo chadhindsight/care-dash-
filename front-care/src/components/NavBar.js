@@ -4,7 +4,7 @@ import actions from '../services/index';
 
 const NavBar = (props) => {
     const logOut = async () => {
-        let res = await actions.logout()
+         await actions.logout()
         props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null }) //FIX 
         return <Redirect to='/target' />         
     }
@@ -13,7 +13,7 @@ const NavBar = (props) => {
         <>
             <Link to="/">Home</Link>
             <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/signup">Signup</Link>
             <Link to="/" onClick={logOut}>Logout</Link>
         </>
     );

@@ -10,17 +10,23 @@ const service = axios.create({ withCredentials: true, baseURL });
 
 // register, login, logout
 const actions = {
-    register: async(user) => {
-        return await service.post('/register', user)
+    signup: async(user) => {
+        return await service.post('/signup', user)
+    },
+    googleReg: async(user) => {
+        return await service.post('/auth/google/care-dash', user)
     },
     login: async (userInfo) => {
         return await service.post('/login', userInfo)
     },
     logout: async () => {
         return await service.get('/logout')
+    }, 
+    isLoggedIn: async () => {
+        return await service.get('/is-logged-in')
     },
-    showUser: async (userInfo) => {
-        return await service.get('/profile')
+    search: async (searchTerm) => {
+        return await service.get(`/search?name=${searchTerm}`)
     }
 }    
 export default actions;

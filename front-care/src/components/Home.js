@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import actions from '../services';
 
 class Home extends Component {
     render() {
