@@ -59,7 +59,7 @@ const SearchBar = (props) => {
             }}
             options={options}
             onSelect={onSelect}
-            placeholder="Search for your medication"
+            placeholder="Search by medication or by your symptoms"
             onSearch={handleSearch}
             value={value}
         >

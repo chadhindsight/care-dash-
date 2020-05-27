@@ -8,10 +8,10 @@ const ProductInfo = (props) =>{
     return (
         <div>
             <h2>{props.currentProduct.drugName}</h2>
-            <p>Rating: {props.currentProduct.rating}</p>
-            <p>For: {props.currentProduct.condition}</p>
-            <p>Review: {editedReview}</p>
-            <button onClick={props.addToCart}>Add To Cart</button>
+            <p><strong>Rating:</strong> {props.currentProduct.rating}</p>
+            <p><strong>For:</strong> {props.currentProduct.condition}</p>
+            <p><strong>Review:</strong> {editedReview}</p>
+            <button onClick={() => props.addToCart(props.currentProduct)}>Add To Cart</button>
         </div>
         );
     }
