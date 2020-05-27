@@ -7,38 +7,50 @@ function getRandomInt(max, min = 0) {
     return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
 }
 
-const Search = query =>
-    new Array(getRandomInt(5))
-        .join('.')
-        .split('.')
-        .map((item, idx) => {
+const Search = (query,meds) =>{
+    console.log(query)
+
+  return meds.slice(0,20).map((item, idx) => {
             const category = `${query}${idx}`;
             return {
-                value: category,
+                value: JSON.stringify(item),
                 label: (
                     <div
                         style={{
                             display: 'flex',
                             justifyContent: 'space-between',
                         }}>
-                        <span>{getRandomInt(200, 100)} results</span>
+                        <span>{item.drugName} ({item.condition})</span>
                     </div>
                 ),
             };
         });
-
+    }
 const SearchBar = (props) => {
     const [options, setOptions] = useState([]);
-
+    const [value, setValue] = useState('');
+    // const [meds, setMeds] = useState([]) 
+   
+    let timeout = null;
     const handleSearch = async (value) => {
-        await props.getResults(value)
-        setOptions(value ? Search(value) : []);
+        setValue(value)
+        clearTimeout(timeout)
+        timeout = setTimeout(async() => {
+            let results = await props.getResults(value)
+            // setOptions(value ? Search(value) : []);
+            console.log(results)
+            setOptions(Search(value, results.data.meds))
+        }, 1000);
+
     };
 
     const onSelect = value => {
+        value = JSON.parse(value)
         console.log('onSelect', value);
+        setValue(value.drugName)
+        props.addToCart(value)
     };
-
+    console.log(options)
     return (
         <AutoComplete
             dropdownMatchSelectWidth={252}
@@ -48,6 +60,7 @@ const SearchBar = (props) => {
             options={options}
             onSelect={onSelect}
             onSearch={handleSearch}
+            value={value}
         >
             {/* <Input.Search size="large" placeholder="input here" enterButton /> */}
         </AutoComplete>

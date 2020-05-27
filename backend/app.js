@@ -10,7 +10,7 @@ const cors = require('cors');
 const session = require('express-session');
 const passport = require('./config/passport');
 // 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/deploymentExample'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/care-dash'
 console.log('Connecting DB to ', MONGODB_URI)
 
 mongoose
@@ -22,6 +22,7 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
 
 app.use(
   cors({

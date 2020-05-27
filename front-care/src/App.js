@@ -11,8 +11,8 @@ import actions from './services/index';
 
 class  App extends Component {
   state = {
-    cart: []
-  }
+    cart: [] 
+   }
 
   setUser = (user) => this.setState(user)
 
@@ -25,21 +25,27 @@ class  App extends Component {
   
   getResults = async term => {
     let results = await actions.search(term)
+    // this.setState({ meds: results.data.meds})
     console.log(results)
+    return results
   }
 
-  addToCart = item => this.setState({
-    carts: this.state.carts.push(item)
-  })
+  addToCart = item => {
+    let cart = [...this.state.cart]
+    cart.push(item)
+    this.setState({
+        cart: cart 
+     })
+  }
 
   render() {
-    console.log(this.state.results)
+    console.log(this.state)
     return (
       <div className="App">
 
         {JSON.stringify(this.state.results)}
         <NavBar  userSet={this.setUser} />
-        <SearchBar getResults={this.getResults} />
+        <SearchBar getResults={this.getResults} addToCart={this.addToCart}/>
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} />} />
           <Route exact path="/login" render={(props) => <Login {...props} setUser={this.setUser} />} />

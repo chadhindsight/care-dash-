@@ -6,10 +6,13 @@ const Medicine = require('../models/Medicine');
 // Search route
 router.get('/search', (req, res, next) => {
     // //DB SEARCH
-    Medicine.find({}).then(med => res.json(med))
+    console.log(req.query)
+    Medicine.find({ drugName: { $regex: req.query.name, $options: 'i' }}).limit(20).then(meds => {
+        console.log(meds)
+        res.json({meds})
+    })
         .catch(err => console.log("Cannot find medication"))
 
-    console.log(req.query)
 })
 //Cart route
 router.get('/cart', (req, res, next) => {
