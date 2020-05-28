@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('../config/passport');
 const Medicine = require('../models/Medicine'); 
+const User = require ('../models/User');
 
 // Search route
 router.get('/search', (req, res, next) => {
@@ -13,9 +14,16 @@ router.get('/search', (req, res, next) => {
         .catch(err => console.log("Cannot find medication"))
 
 })
-//Cart route
-router.post('/order', (req, res, next) => {
+
+//Backend portion of checking out
+router.post('/order', isAuth, (req, res, next) => {
     //Target the specific user's order array
-    console.log(req.body)
+    User.findByIdAndUpdate({ _id: req.user._id }, { order: req.body }, { new: true }).then(x => console.log(x))
+    // console.log(req.body, req.user._id)
+
 })
+
+function isAuth(req, res, next) {
+    req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });
+}
 module.exports = router;

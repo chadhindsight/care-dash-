@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const passport = require('../config/passport');
-const Medicine = require('../models/Medicine'); 
 
 router.post('/signup', (req, res, next) => {
   console.log(req.body.username)
@@ -42,7 +41,7 @@ router.get('/profile', isAuth, (req, res, next) => {
 });
 
 
-function isAuth(req, res, next) {
+ function isAuth(req, res, next) {
   req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });
 }
 
