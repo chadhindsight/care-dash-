@@ -26,6 +26,7 @@ router.get('/is-logged-in', (req, res, next) => {
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
   const { user } = req;
+  console.log(user)
   res.status(200).json(user);
 });
 
@@ -36,9 +37,22 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/profile', isAuth, (req, res, next) => {
   User.findById(req.user._id)
-    .then((user) => res.status(200).json({ user }))
+    .then((user) => {
+      res.status(200).json({ user })
+    })
     .catch((err) => res.status(500).json({ err }));
 });
+
+router.post('/profile',isAuth, (req, res, next) => {
+  console.log(req.body, "random stuff")
+  User.findByIdAndUpdate({ _id: req.user._id }, { 
+      email: req.body.name, 
+      // pw: req.body.password, 
+      primaryPharmacy: req.body.primaryPharm 
+  }, 
+    { new: true }).then(user =>{ console.log(user)
+    res.status(200).json( user)})
+})
 
 
  function isAuth(req, res, next) {

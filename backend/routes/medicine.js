@@ -22,6 +22,11 @@ router.post('/order', isAuth, (req, res, next) => {
     // console.log(req.body, req.user._id)
 
 })
+router.post('/ranked', (req, res, next) => {
+    Medicine.find({}).sort({rating: Number(req.body.ranked)}).limit(10).then(meds=>{
+        res.json({meds})
+    })
+})
 
 function isAuth(req, res, next) {
     req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });

@@ -1,14 +1,33 @@
 import React from 'react';
+import actions from '../../services/index';
 
-// DO A GET HERE
 const Profile = (props) => {
-    console.log(props.profile)
+    console.log(props)
+    // if(props.profile.email){
+    //     props.history.push('/')
+    // }
+   const  profileSubmit = async (e) => {
+        e.preventDefault()
+        console.log("made it to submit", props.profile)
+        let newProfile = await actions.editProfile(props.profile)
+        // this.stateState({ profile: newProfile })
+        console.log(newProfile)
+    }
+
     return (
         <>
+        {/* EMAIL NOT UPDATING */}
            Profile 
             <h1>{props.profile.email}</h1>
+            <form onSubmit={(e)=>profileSubmit(e)}>
+                <input placeholder="email" name="email" onBlur={props.handleBlur} onChange={ props.handleChange} /> 
+                <input placeholder="primary pharmacy" name="primaryPharm" onBlur={props.handleBlur} onChange={props.handleChange} /> 
+                
+                <input type="submit"/>
+            </form>
         </>
     );
 };
 
 export default Profile;
+// dayjs

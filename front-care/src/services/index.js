@@ -30,6 +30,14 @@ const actions = {
     },
     placeOrder: async(order) => {
         return await service.post('/order', order)
+    },
+    editProfile: async(profile) => {
+        console.log(profile)
+        return await service.post('/profile', profile)
+    },
+    rankedMeds: async (ranked) => {
+        console.log(ranked)
+        return await service.post('/ranked', ranked)
     }
 }    
 export default actions;

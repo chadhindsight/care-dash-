@@ -10,13 +10,13 @@ const NavBar = (props) => {
     }
 
     return (
-        <>
+        <nav>
             <Link to="/">Home</Link>
             <Link to="/login">Login</Link>
             <Link to="/signup">Signup</Link>
             <Link to="/" onClick={logOut}>Logout</Link>
             <Link to="/order">View Cart</Link>
-        </>
+        </nav>
     );
 };
 
