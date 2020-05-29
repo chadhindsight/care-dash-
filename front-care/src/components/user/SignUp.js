@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import actions from '../../services/index';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { GoogleLogin, useGoogleLogin } from 'react-google-login';
-// const {isSignedIn} = useGoogleLogin({isSignedIn})
-// console.log(isSignedIn)
+import { MDBAlert, MDBBtn } from 'mdbreact';
+
 
 const SignUp = (props) => {
     // NB: Only call Hooks from React function components.
@@ -53,7 +53,7 @@ const SignUp = (props) => {
                 <input type="text" name="fullname" placeholder="fullname" onChange={e => setFullName(e.target.value)} />
                 {/* <input type="text" name="primaryPharmacy" placeholder="pharmacy" onChange={e => setPharmacy(e.target.value)} />
                 <input type="text" placeholder="symptoms/conditions" onChange={e=> setCondition(e.target.value)}/> */}
-                <input type="submit" />
+                <MDBBtn color="default" onClick={handleSubmit}>Submit</MDBBtn>
             </form>
             
             <GoogleLogin

@@ -1,5 +1,6 @@
 import React from 'react';
 import actions from '../../services/index';
+import { MDBBtn } from 'mdbreact';
 
 const Profile = (props) => {
     console.log(props)
@@ -23,7 +24,7 @@ const Profile = (props) => {
                 <input placeholder="email" name="email" onBlur={props.handleBlur} onChange={ props.handleChange} /> 
                 <input placeholder="primary pharmacy" name="primaryPharm" onBlur={props.handleBlur} onChange={props.handleChange} /> 
                 
-                <input type="submit"/>
+                <MDBBtn color="secondary" onClick={profileSubmit}>Submit</MDBBtn>
             </form>
         </>
     );

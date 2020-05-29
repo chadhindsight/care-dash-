@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
+import {  MDBBtn } from 'mdbreact';
 
 const Login = (props) => {
     // REACT HOOKS HERE!
@@ -21,7 +22,7 @@ const Login = (props) => {
             <form onSubmit={logInHandler}>
                 <input type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
                 <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <input type="submit" />
+                <MDBBtn color="default" onClick={logInHandler}>Submit</MDBBtn>
             </form>
         </>
     );
