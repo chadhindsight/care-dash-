@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Login from './components/user/Login'
 import Profile from './components/user/Profile'
 import SignUp from './components/user/SignUp'
-import NavBar from './components/NavBar';
+import Navbar from './components/NavBar';
 import Order from './components/Order'
 import SearchBar from './components/search/SearchBar';
 import ProductInfo from './components/search/ProductInfo';
@@ -96,7 +96,7 @@ class  App extends Component {
       <div className="App">
 
         {JSON.stringify(this.state.results)}
-        <NavBar  userSet={this.setUser} />
+        <Navbar  userSet={this.setUser} />
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} 
             getResults={this.getResults} showInfo={this.showInfo} displayRankedMeds= {this.displayRankedMeds}/>} />

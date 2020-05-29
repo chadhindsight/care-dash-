@@ -1,22 +1,70 @@
-import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import React, {useState }from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import actions from '../services/index';
+import {
+    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
+    MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+} from "mdbreact";
 
 const NavBar = (props) => {
+    const [isOpen, setIsOpen] = useState(false)
+
     const logOut = async () => {
-         await actions.logout()
+        await actions.logout()
         props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null }) //FIX 
-        return <Redirect to='/target' />         
+        return <Redirect to='/target' />
     }
 
     return (
-        <nav>
-            <Link to="/">Home</Link>
+        <>
+            <MDBNavbar color="indigo" dark expand="md">
+                <MDBNavbarBrand>
+                    <strong className="white-text">Navbar</strong>
+                </MDBNavbarBrand>
+                <MDBNavbarToggler onClick={()=> setIsOpen(!isOpen)} />
+                 <MDBCollapse id="navbarCollapse3"  isOpen={isOpen} navbar>
+                    <MDBNavbarNav left> 
+                        <MDBNavItem active>
+                            <MDBNavLink to="/">Home</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/">Signout</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/login">Login</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/signup">Signup</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/order">Order</MDBNavLink>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBDropdown>
+                    
+                                <MDBDropdownMenu>
+                                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
+                                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
+                                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                                </MDBDropdownMenu>
+                            </MDBDropdown>
+                        </MDBNavItem>
+                    </MDBNavbarNav>
+                    <MDBNavbarNav right>
+                        <MDBNavItem>
+                            {/* <MDBFormInline waves>
+                            </MDBFormInline> */}
+                        </MDBNavItem>
+                    </MDBNavbarNav>
+                </MDBCollapse>
+            </MDBNavbar>
+            {/* <Link to="/">Home</Link>
             <Link to="/login">Login</Link>
             <Link to="/signup">Signup</Link>
             <Link to="/" onClick={logOut}>Logout</Link>
-            <Link to="/order">View Cart</Link>
-        </nav>
+            <Link to="/order">View Cart</Link> */}
+        </>
     );
 };
 

@@ -29,7 +29,8 @@ const Order = (props) => {
     // console.log(props)
     const displayItems = props.cart.map(med => {
         return (
-            <div>< li key={med.uniqueID}>{med.drugName}</li>
+            <div><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
+                <p><strong>Rating: {med.rating}</strong></p>
                 <button onClick={remove}>Remove from Cart</button>
             </div>
         )

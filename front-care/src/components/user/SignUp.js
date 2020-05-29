@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
+import { Form, Input, Button, Checkbox } from 'antd';
 import { GoogleLogin, useGoogleLogin } from 'react-google-login';
 // const {isSignedIn} = useGoogleLogin({isSignedIn})
 // console.log(isSignedIn)
@@ -54,6 +55,7 @@ const SignUp = (props) => {
                 <input type="text" placeholder="symptoms/conditions" onChange={e=> setCondition(e.target.value)}/> */}
                 <input type="submit" />
             </form>
+            
             <GoogleLogin
                 clientId="556929332950-si4a6sd3fktopq12klupsadi12l6sv1p.apps.googleusercontent.com"
                 buttonText="Login"

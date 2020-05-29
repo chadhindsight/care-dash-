@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 100vh;
+  margin-top: 0;
 }
 nav {
   background: #eee;
@@ -9,20 +11,39 @@ nav {
   justify-content: space-around;
   margin-bottom: 2rem;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input 
+li {
+  list-style: none;
+}
+#product-card {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 411) {
+  nav {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+@media(max-width: 375) {
+  nav {
+    width: 100%;
+    margin-right: 0;
+  }
+  body {
+    width: 100vw;
+  }
+}
+/* FORM STYLING  IPAD*/
+@media (max-width:1024) {
+  input{
+    width: 65%;
   }
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
