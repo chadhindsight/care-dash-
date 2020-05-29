@@ -11,10 +11,15 @@ nav {
   justify-content: space-around;
   margin-bottom: 2rem;
 }
-input 
+
 li {
   list-style: none;
 }
+
+#remove {
+  color: red;
+}
+
 #product-card {
   display: flex;
   justify-content: center;

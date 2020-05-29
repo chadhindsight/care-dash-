@@ -32,7 +32,7 @@ const Order = (props) => {
         return (
             <div><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
                 <p><strong>Rating: {med.rating}</strong></p>
-                <Link to="/"><button onClick={remove}>Remove from Cart</button></Link>
+                <Link to="/"><button onClick={remove} id="remove">Remove from Cart</button></Link>
             </div>
         )
     })
