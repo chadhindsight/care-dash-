@@ -5,7 +5,6 @@ import { MDBBtn } from "mdbreact";
 import {Link} from 'react-router-dom';
 
 const Order = (props) => {
-    // Put this method in App.js and pass it down
     const remove = (thing) => {
 
     }
