@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'antd';
 import actions from '../services/index';
+import {Link} from 'react-router-dom';
 
 const Order = (props) => {
     // Put this method in App.js and pass it down
@@ -31,7 +32,7 @@ const Order = (props) => {
         return (
             <div><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
                 <p><strong>Rating: {med.rating}</strong></p>
-                <button onClick={remove}>Remove from Cart</button>
+                <Link to="/"><button onClick={remove}>Remove from Cart</button></Link>
             </div>
         )
     })
