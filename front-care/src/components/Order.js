@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'antd';
 import actions from '../services/index';
+import { MDBBtn } from "mdbreact";
 import {Link} from 'react-router-dom';
 
 const Order = (props) => {
@@ -32,7 +33,7 @@ const Order = (props) => {
         return (
             <div><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
                 <p><strong>Rating: {med.rating}</strong></p>
-                <Link to="/"><button onClick={remove} id="remove">Remove from Cart</button></Link>
+                <Link to="/"><MDBBtn rounded color="danger" onClick={remove}>Danger</MDBBtn></Link>
             </div>
         )
     })

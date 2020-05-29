@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './search/SearchBar';
 import actions from '../services/index'
+import { MDBBtn } from "mdbreact";
 
 const Home = (props) => {
     
@@ -10,7 +11,7 @@ const Home = (props) => {
             <div>
                 Home Page
                 <SearchBar getResults={props.getResults} showInfo={props.showInfo} />
-                <button onClick={() => props.displayRankedMeds()}>Show Cart</button>
+                <MDBBtn onClick={() => props.displayRankedMeds()} color="primary">Show Cart</MDBBtn>
             </div>
         );
 }
