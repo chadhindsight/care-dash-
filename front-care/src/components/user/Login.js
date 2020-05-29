@@ -15,7 +15,6 @@ const Login = (props) => {
             props.history.push("/profile")
         }).catch((err) => console.log(err));
     }
-console.log(email, password)
 
     return (
         <>
