@@ -23,11 +23,6 @@ const Login = (props) => {
                 <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
                 <input type="submit" />
             </form>
-
-            <a className="btn btn-block btn-social btn-google" href="/auth/google" role="button">
-                <i className="fab fa-google"></i>
-            Login with Google
-          </a>
         </>
     );
 };

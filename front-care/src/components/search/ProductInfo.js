@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Card } from 'antd';
 import { faCapsules } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  MDBAlert } from 'mdbreact';
+import {  MDBAlert, MDBBtn } from 'mdbreact';
 
 const ProductInfo = (props) =>{
     const [show, setShow] = useState(false)
@@ -27,7 +27,7 @@ const ProductInfo = (props) =>{
                 <p><strong>Rating:</strong> {props.currentProduct.rating}</p>
                 <p><strong>For:</strong> {props.currentProduct.condition}</p>
                 <p><strong>Review:</strong> {editedReview}</p>
-                <button onClick={() => onAdd()}>Add To Cart</button>
+                <MDBBtn className="success" onClick={() => onAdd()}>Add To Cart</MDBBtn>
             </Card> 
         </div>
         );

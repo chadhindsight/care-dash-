@@ -15,7 +15,17 @@ nav {
 li {
   list-style: none;
 }
-
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  /* justify-content: flex-end; */
+  margin: 0 ; 
+}
+form {
+  /* for mobile margin-top: 25%; */
+    margin-top: 15%;
+}
 #remove {
   color: red;
 }
@@ -26,25 +36,40 @@ li {
   margin: 0 auto;
 }
 
-@media (max-width: 411) {
+@media (min-width: 411) {
   nav {
-    width: 100%;
+    width:100vw;;
     margin-right: 0;
   }
+  input{
+    width: 65%;
+  }
+  form {
+       margin-top: 25%;
+  }
 }
-@media(max-width: 375) {
+@media(min-width: 375) {
   nav {
-    width: 100%;
+    width: 100vw;;
     margin-right: 0;
+  }
+  form {
+   margin-top: 25%;
+}
+  input{
+    width: 65%;
   }
   body {
     width: 100vw;
   }
 }
 /* FORM STYLING  IPAD*/
-@media (max-width:1024) {
+@media (min-width:1024) {
   input{
     width: 65%;
+  }
+  form {
+       margin-top: 35%;
   }
 }
 

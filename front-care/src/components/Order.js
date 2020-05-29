@@ -41,7 +41,7 @@ const Order = (props) => {
         <div>
             <form>
                 <ul>{displayItems}</ul>
-                <button onClick={() => props.onOrderSubmit(props.cart)}>Place Order</button>
+                <MDBBtn className="default" onClick={() => props.onOrderSubmit(props.cart) }>Place Order</MDBBtn>
             </form>
         </div>
     );

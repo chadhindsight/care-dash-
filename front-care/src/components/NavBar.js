@@ -1,6 +1,9 @@
 import React, {useState }from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import actions from '../services/index';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
@@ -17,38 +20,29 @@ const NavBar = (props) => {
 
     return (
         <>
-            <MDBNavbar color="indigo" dark expand="md">
+            <MDBNavbar id="nav" color="indigo" dark expand="md" >
                 <MDBNavbarBrand>
-                    <strong className="white-text">Navbar</strong>
+                    <strong className="white-text">Care-Dash</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={()=> setIsOpen(!isOpen)} />
-                 <MDBCollapse id="navbarCollapse3"  isOpen={isOpen} navbar>
+                 <MDBCollapse id="navbarCollapse3"  isOpen={isOpen} navbar> 
                     <MDBNavbarNav left> 
-                        <MDBNavItem active>
+                        <MDBNavItem className="nav-item" active>
                             <MDBNavLink to="/">Home</MDBNavLink>
                         </MDBNavItem>
-                        <MDBNavItem>
+                        <MDBNavItem >
                             <MDBNavLink to="/">Signout</MDBNavLink>
                         </MDBNavItem>
-                        <MDBNavItem>
+                        <MDBNavItem >
                             <MDBNavLink to="/login">Login</MDBNavLink>
                         </MDBNavItem>
-                        <MDBNavItem>
+                        <MDBNavItem >
                             <MDBNavLink to="/signup">Signup</MDBNavLink>
                         </MDBNavItem>
-                        <MDBNavItem>
-                            <MDBNavLink to="/order">Order</MDBNavLink>
+                        <MDBNavItem >
+                            <MDBNavLink to="/order"><FontAwesomeIcon icon={faCartPlus}/></MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBDropdown>
-                    
-                                <MDBDropdownMenu>
-                                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                </MDBDropdownMenu>
-                            </MDBDropdown>
                         </MDBNavItem>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
