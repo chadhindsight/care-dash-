@@ -8,7 +8,7 @@ const Order = (props) => {
     const remove = (thing) => {
 
     }
-    //CONDITIONAL RENDER: Only display when user places order. 
+    //CONDITIONAL RENDER: Only display when user places order
     // const Mode = () => {
     //     return (
     //         <div>
