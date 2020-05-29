@@ -11,7 +11,7 @@ const Home = (props) => {
             <div>
                 Home Page
                 <SearchBar getResults={props.getResults} showInfo={props.showInfo} />
-                <MDBBtn onClick={() => props.displayRankedMeds()} color="primary">Show Cart</MDBBtn>
+                <MDBBtn onClick={() => props.displayRankedMeds()} color="primary">Go</MDBBtn>
             </div>
         );
 }
