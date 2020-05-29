@@ -9,7 +9,6 @@ const Home = (props) => {
     //Show confirmation when user submits order
         return (
             <div>
-                Home Page
                 <SearchBar getResults={props.getResults} showInfo={props.showInfo} />
                 <MDBBtn onClick={() => props.displayRankedMeds()} color="primary">Go</MDBBtn>
             </div>
