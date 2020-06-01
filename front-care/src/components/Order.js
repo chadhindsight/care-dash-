@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 
 const Order = (props) => {
 
-    // console.log(props)
     const displayItems = props.cart.map(med => {
         return (
             <div><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
