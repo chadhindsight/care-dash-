@@ -6,12 +6,14 @@ import {  MDBAlert, MDBBtn } from 'mdbreact';
 
 const ProductInfo = (props) =>{
     const [show, setShow] = useState(false)
+    
     function onAdd () {
-        props.addToCart()
+        props.addToCart(props.currentProduct)
         setShow(true)
         setTimeout(() => {
             setShow(false)
         }, 2000);
+        console.log(props.currentProduct)
     }
     // Remove non-alphanumeric
     let editedReview

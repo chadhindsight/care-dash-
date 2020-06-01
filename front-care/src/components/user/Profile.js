@@ -11,13 +11,12 @@ const Profile = (props) => {
         e.preventDefault()
         console.log("made it to submit", props.profile)
         let newProfile = await actions.editProfile(props.profile)
-        // this.stateState({ profile: newProfile })
+
         console.log(newProfile)
     }
 
     return (
         <>
-        {/* EMAIL NOT UPDATING */}
            Profile 
             <h1>{props.profile.email}</h1>
             <form onSubmit={(e)=>profileSubmit(e)}>
