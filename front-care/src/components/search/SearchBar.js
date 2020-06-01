@@ -26,6 +26,7 @@ const Search = (query,meds) =>{
             };
         });
     }
+// Search bar logic 
 const SearchBar = (props) => {
     const [options, setOptions] = useState([]);
     const [value, setValue] = useState('');
