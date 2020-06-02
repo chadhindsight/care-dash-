@@ -10,7 +10,7 @@ const Order = (props) => {
         return (
             <div><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
                 <p><strong>Rating: {med.rating}</strong></p>
-                <Link to="/"><MDBBtn rounded color="danger" >Danger</MDBBtn></Link>
+                <Link to="/"><MDBBtn rounded color="danger">Remove</MDBBtn></Link>
             </div>
         )
     })
