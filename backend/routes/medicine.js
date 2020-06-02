@@ -4,6 +4,8 @@ const passport = require('../config/passport');
 const Medicine = require('../models/Medicine'); 
 const User = require ('../models/User');
 
+
+
 // Search route
 router.get('/search', (req, res, next) => {
     // //DB SEARCH
@@ -19,13 +21,8 @@ router.get('/search', (req, res, next) => {
 router.post('/order', isAuth, (req, res, next) => {
     //Target the specific user's order array
     User.findByIdAndUpdate({ _id: req.user._id }, { order: req.body }, { new: true }).then(x => console.log(x))
+    .catch(err => res.json('Please ign in'))
     // console.log(req.body, req.user._id)
-
-})
-router.post('/ranked', (req, res, next) => {
-    Medicine.find({}).sort({rating: Number(req.body.ranked)}).limit(10).then(meds=>{
-        res.json({meds})
-    })
 })
 
 function isAuth(req, res, next) {

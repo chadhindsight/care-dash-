@@ -5,8 +5,7 @@ import Login from './components/user/Login'
 import Profile from './components/user/Profile'
 import SignUp from './components/user/SignUp'
 import Navbar from './components/NavBar';
-import Order from './components/Order'
-import SearchBar from './components/search/SearchBar';
+import Order from './components/Order';
 import ProductInfo from './components/search/ProductInfo';
 import actions from './services/index';
 
@@ -43,7 +42,7 @@ class  App extends Component {
   //The methods handling state stuff
   async componentDidMount() {
     let user = await actions.isLoggedIn()
-    console.log(user)
+    // console.log(user)
     this.setState({ ...user.data })
   }
   
@@ -58,13 +57,17 @@ class  App extends Component {
 
   addToCart = item => {
     
-    console.log(item)
     let cart = [...this.state.cart]
     cart.push(item)
     this.setState({
         cart: cart 
      })
+    console.log(item) 
   }
+
+// removeFromCart = item => {
+
+// }
 // Place order
   onOrderSubmit = async (userOrder) => {
     let re = await actions.placeOrder(userOrder)
@@ -74,7 +77,6 @@ class  App extends Component {
 
 // PROFILE EDIT STUFF 
   handleChange = e => {
-    console.log(e.target.value)
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -86,7 +88,6 @@ class  App extends Component {
 
   // profileSubmit = async (e) => {
   //   e.preventDefault()
-  //   console.log("made it to submit")
   //   let newProfile = await actions.editProfile(this.state)
   //   this.stateState({profile: newProfile})
   // }
