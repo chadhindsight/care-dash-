@@ -21,7 +21,7 @@ const NavBar = (props) => {
     return (
         <>
             <MDBNavbar id="nav" color="indigo" dark expand="md" >
-               <Link> <MDBNavbarBrand>
+               <Link to='/'> <MDBNavbarBrand>
                     <strong className="white-text">Care-Dash</strong>
                 </MDBNavbarBrand></Link>
                 <MDBNavbarToggler onClick={()=> setIsOpen(!isOpen)} />
