@@ -3,9 +3,7 @@ import actions from '../../services/index';
 import { MDBBtn } from 'mdbreact';
 
 const Profile = (props) => {
-    // if(props.profile.email){
-    //     props.history.push('/')
-    // }
+    
    const  profileSubmit = async (e) => {
         e.preventDefault()
         console.log("made it to submit", props.profile)
