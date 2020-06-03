@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import actions from '../../services/index';
 import { MDBBtn } from 'mdbreact';
 
 const Profile = (props) => {
-    console.log(props)
     // if(props.profile.email){
     //     props.history.push('/')
     // }
@@ -14,11 +13,19 @@ const Profile = (props) => {
 
         console.log(newProfile)
     }
+   
+    useEffect(() =>{
+          return async () => {
+            let order = await props.profile.order
+            console.log(props)
+        }
+    })
 
     return (
         <>
            Profile 
             <h1>{props.profile.email}</h1>
+                {/* <ul>{showOrder()}</ul> */}
             <form onSubmit={(e)=>profileSubmit(e)}>
                 <input placeholder="email" name="email" onBlur={props.handleBlur} onChange={ props.handleChange} /> 
                 <input placeholder="primary pharmacy" name="primaryPharm" onBlur={props.handleBlur} onChange={props.handleChange} /> 
