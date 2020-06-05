@@ -20,7 +20,6 @@ const Profile = (props) => {
     }
     return (
         <>
-            Profile
             <h1>{props.profile.email}</h1>
             <ul>{showOrder()}</ul>
             <form onSubmit={(e) => profileSubmit(e)}>
