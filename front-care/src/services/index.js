@@ -35,6 +35,7 @@ const actions = {
         console.log(profile)
         return await service.post('/profile', profile)
     },
+    // Maybe finish this later
     rankedMeds: async (ranked) => {
         console.log(ranked)
         return await service.post('/ranked', ranked)

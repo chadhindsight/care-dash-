@@ -15,12 +15,11 @@ class  App extends Component {
     currentProduct: {},
     medications: null,
     show: false
-   }
+  }
 
    displayRankedMeds = async ()=> {
      let results = await actions.rankedMeds(1)
      this.setState({ medications: results.data.meds })
-     console.log(results)
 
        return this.state.medications.map(drug => {
          return (
@@ -39,17 +38,15 @@ class  App extends Component {
   };
   setUser = (user) => this.setState(user)
 
-  //The methods handling state stuff
   async componentDidMount() {
     let user = await actions.isLoggedIn()
-    // console.log(user)
+    console.log(user.data.order)
     this.setState({ ...user.data })
   }
   
   getResults = async term => {
     let results = await actions.search(term)
     // this.setState({ meds: results.data.meds})
-    console.log(results)
     return results
   }
 // Show information for a when a specific product is selected
@@ -62,7 +59,6 @@ class  App extends Component {
     this.setState({
         cart: cart 
      })
-    console.log(item) 
   }
 
 // removeFromCart = item => {
@@ -70,6 +66,7 @@ class  App extends Component {
 // }
 // Place order
   onOrderSubmit = async (userOrder) => {
+    // console.log(userOrder)
     let re = await actions.placeOrder(userOrder)
     this.setState({show: true})
 
