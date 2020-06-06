@@ -3,6 +3,9 @@
   height: 100vh;
   margin-top: 0;
 }
+body {
+  width: 100%;
+}
 nav {
   background: #eee;
   width: 100%;
@@ -10,6 +13,13 @@ nav {
   display: flex;
   justify-content: space-around;
   margin-bottom: 2rem;
+}
+
+#search-bar{
+  margin-top: 12%;
+  z-index: 1;
+  color: black;
+  position: 'relative'
 }
 
 li {
@@ -38,7 +48,7 @@ form {
 
 @media (min-width: 411) {
   nav {
-    width:100vw;;
+    width:100vw;
     margin-right: 0;
   }
   input{
@@ -48,20 +58,25 @@ form {
        margin-top: 25%;
   }
 }
-@media(min-width: 375) {
+@media(max-width: 375) {
   nav {
     width: 100vw;;
-    margin-right: 0;
   }
+ #root > div > div > div{
+  margin-top: 12%;
+  z-index: 1;
+  color: black;
+  position: 'relative'
+}
   form {
    margin-top: 25%;
 }
   input{
     width: 65%;
   }
-  body {
-    width: 100vw;
-  }
+  /* body {
+    width: 100%;
+  } */
 }
 /* FORM STYLING  IPAD*/
 @media (min-width:1024) {

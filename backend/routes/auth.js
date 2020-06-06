@@ -37,7 +37,7 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/profile', isAuth, (req, res, next) => {
   User.findById(req.user._id)
-    .then((user) => {
+    .then(user => {
       res.status(200).json({ user })
     })
     .catch((err) => res.status(500).json({ err }));
@@ -60,3 +60,4 @@ router.post('/profile',isAuth, (req, res, next) => {
 }
 
 module.exports = router;
+// caredash20@gmail.com

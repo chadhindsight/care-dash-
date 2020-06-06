@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, AutoComplete } from 'antd';
+import { Input, AutoComplete, Spin } from 'antd';
 
 import { Link } from 'react-router-dom';
 
@@ -53,12 +53,13 @@ const SearchBar = (props) => {
     };
     console.log(options)
     return (
-        <AutoComplete
+        <AutoComplete id='search-bar'
             dropdownMatchSelectWidth={252}
             style={{
                 width: 450,
             }}
             options={options}
+            notFoundContent={options.length < 0 ? <p>Not Found</p> : <Spin />  }
             onSelect={onSelect}
             placeholder="Search by medication or by your symptoms"
             onSearch={handleSearch}
