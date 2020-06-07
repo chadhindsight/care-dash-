@@ -11,7 +11,7 @@ const Home = (props) => {
         return (
             <div>
                 <SearchBar getResults={props.getResults} showInfo={props.showInfo} />
-                <Doc style={{ position: 'relative', zIndex: '-1', marginTop: '-16%', width: '80%'}}/>
+                <Doc style={{ position: 'relative', zIndex: '-1', marginTop: '-5%', width: '80%'}}/>
             </div>
         );
 }

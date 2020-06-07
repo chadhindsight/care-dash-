@@ -53,10 +53,11 @@ const SearchBar = (props) => {
     };
     console.log(options)
     return (
-        <AutoComplete id='search-bar'
+        <AutoComplete className='search-bar'
             dropdownMatchSelectWidth={252}
             style={{
-                width: 450,
+                width: 350,
+                marginTop: '4.5%'
             }}
             options={options}
             notFoundContent={options.length < 0 ? <p>Not Found</p> : <Spin />  }
