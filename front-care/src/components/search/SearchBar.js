@@ -57,7 +57,7 @@ const SearchBar = (props) => {
             dropdownMatchSelectWidth={252}
             style={{
                 width: 350,
-                marginTop: '4.5%'
+                marginTop: '4.6%'
             }}
             options={options}
             notFoundContent={options.length < 0 ? <p>Not Found</p> : <Spin />  }
