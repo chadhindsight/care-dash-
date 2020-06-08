@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
 import {  MDBBtn } from 'mdbreact';
+import { ReactComponent as Signin } from '../../assets/signin.svg'
 
 const Login = (props) => {
     // REACT HOOKS HERE!
@@ -23,7 +24,9 @@ const Login = (props) => {
                 <input type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
                 <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
                 <MDBBtn color="default" onClick={logInHandler}>Submit</MDBBtn>
+                <Signin/>
             </form>
+
         </>
     );
 };

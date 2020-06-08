@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import actions from '../../services/index';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { GoogleLogin, useGoogleLogin } from 'react-google-login';
+import { ReactComponent as Signup } from '../../assets/signup.svg';
 import { MDBAlert, MDBBtn } from 'mdbreact';
 
 
@@ -55,7 +56,7 @@ const SignUp = (props) => {
                 <input type="text" placeholder="symptoms/conditions" onChange={e=> setCondition(e.target.value)}/> */}
                 <MDBBtn color="default" onClick={handleSubmit}>Submit</MDBBtn>
             </form>
-            
+            <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '80%' }}/>
             <GoogleLogin
                 clientId="556929332950-si4a6sd3fktopq12klupsadi12l6sv1p.apps.googleusercontent.com"
                 buttonText="Login"

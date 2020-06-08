@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './search/SearchBar';
 import actions from '../services/index'
-import { MDBBtn } from "mdbreact";
 import {ReactComponent as Doc} from '../assets/doc.svg'
 
 const Home = (props) => {
