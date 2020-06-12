@@ -57,13 +57,13 @@ const SignUp = (props) => {
                 <MDBBtn color="default" onClick={handleSubmit}>Submit</MDBBtn>
             </form>
             <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '80%' }}/>
-            <GoogleLogin
+            {/* <GoogleLogin
                 clientId="556929332950-si4a6sd3fktopq12klupsadi12l6sv1p.apps.googleusercontent.com"
                 buttonText="Login"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
-            />
+            /> */}
         </>
     );
 }
