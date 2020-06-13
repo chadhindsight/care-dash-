@@ -8,7 +8,7 @@ const User = require ('../models/User');
 
 // Search route
 router.get('/search', (req, res, next) => {
-    // //DB SEARCH
+    // //DB SEARCH HERE
     Medicine.find({ drugName: { $regex: req.query.name, $options: 'i' }}).limit(20).then(meds => {
         // console.log(meds)
         res.json({meds})
