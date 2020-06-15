@@ -60,10 +60,13 @@ class  App extends Component {
         cart: cart 
      })
   }
-
-// removeFromCart = item => {
-
-// }
+// TODO: Check remove from cart
+removeFromCart = item => {
+  let newCart = this.state.cart
+  if(newCart.length !== 0) newCart.splice(newCart.indexOf(item),1)
+  this.setState({cart: newCart})
+  console.log(newCart)
+}
 // Place order
   onOrderSubmit = async (userOrder) => {
     // console.log(userOrder)
@@ -100,7 +103,7 @@ class  App extends Component {
             getResults={this.getResults} showInfo={this.showInfo} displayRankedMeds= {this.displayRankedMeds}/>} />
           <Route exact path="/login" render={(props) => <Login {...props} setUser={this.setUser} />} />
           <Route exact path="/order" render={(props) => <Order {...props} cart={this.state.cart} 
-          onOrderSubmit={this.onOrderSubmit}/>} />
+            onOrderSubmit={this.onOrderSubmit} removeFromCart={this.removeFromCart}/>} />
           <Route exact path="/profile" render={(props) => <Profile {...props} profile={this.state} 
             handleChange={this.handleChange} profileSubmit={this.state.profileSubmit} />} />
 
