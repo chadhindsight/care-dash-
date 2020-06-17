@@ -27,7 +27,7 @@ const NavBar = (props) => {
                 <MDBNavbarToggler onClick={()=> setIsOpen(!isOpen)} />
                  <MDBCollapse id="navbarCollapse3"  isOpen={isOpen} navbar> 
                     <MDBNavbarNav left onClick={() => setIsOpen(!isOpen)} > 
-                        <MDBNavItem className="nav-item" active>
+                        <MDBNavItem className="nav-item" >
                             <MDBNavLink to="/">Home</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem >
