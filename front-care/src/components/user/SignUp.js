@@ -32,7 +32,7 @@ const SignUp = (props) => {
                 <input type="text" name="fullname" placeholder="fullname" onChange={e => setFullName(e.target.value)} />
                 {/* <input type="text" name="primaryPharmacy" placeholder="pharmacy" onChange={e => setPharmacy(e.target.value)} />
                 <input type="text" placeholder="symptoms/conditions" onChange={e=> setCondition(e.target.value)}/> */}
-                <MDBBtn color="default" onClick={handleSubmit}>Submit</MDBBtn>
+                <MDBBtn color="indigo" onClick={handleSubmit}>Submit</MDBBtn>
             </form>
             {/* Change image */}
             <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '80%' }}/>

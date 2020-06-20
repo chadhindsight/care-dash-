@@ -29,7 +29,7 @@ const Profile = (props) => {
                 <input placeholder="email" name="email" onBlur={props.handleBlur} onChange={props.handleChange} />
                 <input placeholder="primary pharmacy" name="primaryPharm" onBlur={props.handleBlur} onChange={props.handleChange} />
 
-                <MDBBtn color="secondary" onClick={profileEditSubmit}>Submit</MDBBtn>
+                <MDBBtn color="indigo" onClick={profileEditSubmit}>Submit</MDBBtn>
             </form>
         </>
     );
