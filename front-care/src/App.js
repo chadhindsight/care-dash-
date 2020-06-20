@@ -83,16 +83,6 @@ removeFromCart = item => {
     })
   };
 
-  // handleBlur = () => {
-  //   ;
-  // };
-
-  // profileSubmit = async (e) => {
-  //   e.preventDefault()
-  //   let newProfile = await actions.editProfile(this.state)
-  //   this.stateState({profile: newProfile})
-  // }
-
   render() {
     return (
       <div className="App">

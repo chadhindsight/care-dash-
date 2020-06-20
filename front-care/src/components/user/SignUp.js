@@ -26,7 +26,7 @@ const SignUp = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="sign">
                 <input type="text" name="username" placeholder="username" onChange={e => setUserName(e.target.value)} />
                 <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
                 <input type="text" name="fullname" placeholder="fullname" onChange={e => setFullName(e.target.value)} />
@@ -35,7 +35,8 @@ const SignUp = (props) => {
                 <MDBBtn color="indigo" onClick={handleSubmit}>Submit</MDBBtn>
             </form>
             {/* Change image */}
-            <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '70%' }}/>
+            <Signup style={{ position: 'relative', zIndex: '-1', width:'94%', height: '35%' }}
+            className="background-pic"/>
         </>
     );
 }

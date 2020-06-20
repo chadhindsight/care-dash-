@@ -57,6 +57,7 @@ form {
        margin-top: 25%;
   }
 }
+/* IPHONE X */
 @media(max-width: 375) {
   nav {
     width: 100vw;
@@ -65,7 +66,7 @@ form {
    margin-top: 25%;
   }
 }
-/* FORM STYLING  IPAD*/
+/* FOR STYLING  IPAD*/
 @media (min-width:1024) {
   input{
     width: 65%;
@@ -107,3 +108,18 @@ form {
     margin-top: 51%;
     margin-left: 12%;
     margin-right: 37%; */
+
+    .sign{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 5%;
+    }
+    
+    input {
+      margin: 1%;
+    }
+/* Styling for the svgs*/
+.background-pic-login {
+  margin-top: -2%;    
+  }

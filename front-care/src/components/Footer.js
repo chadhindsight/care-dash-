@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            Copyright © {new Date().getFullYear()} - All Rights Reserved - Care-Dash
+            Copyright © {new Date().getFullYear()} - All Rights Reserved - CareDash
         </div>
     );
 };

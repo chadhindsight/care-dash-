@@ -20,12 +20,13 @@ const Login = (props) => {
 
     return (
         <>
-            <form onSubmit={logInHandler}>
+            <form onSubmit={logInHandler} className="sign">
                 <input type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
                 <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <MDBBtn color="indigo" style={{ position: 'relative', zIndex: '-1', width: '50%' }} 
+                <MDBBtn color="indigo" style={{ position: 'relative', zIndex: '-1' }} 
                 onClick={logInHandler}>Submit</MDBBtn>
-                <Signin/>
+                <Signin style={{ width: '40%'}}
+                    className="background-pic-login"/>
             </form>
 
         </>
