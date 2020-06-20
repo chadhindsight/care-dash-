@@ -8,6 +8,7 @@ import Navbar from './components/NavBar';
 import Order from './components/Order';
 import ProductInfo from './components/search/ProductInfo';
 import actions from './services/index';
+import Footer from './components/Footer';
 
 class  App extends Component {
   state = {
@@ -111,6 +112,7 @@ removeFromCart = item => {
           <Route exact path="/product" render={(props) => <ProductInfo {...props} currentProduct={this.state.currentProduct} 
             addToCart={this.addToCart} />} /> 
         </Switch>
+        <Footer />
       </div>
     );
   }
