@@ -30,9 +30,11 @@ const NavBar = (props) => {
                         <MDBNavItem className="nav-item" >
                             <MDBNavLink to="/">Home</MDBNavLink>
                         </MDBNavItem>
+                        {/* TODO: Conditionally render the Signout*/}
                         <MDBNavItem >
                             <MDBNavLink to="/">Signout</MDBNavLink>
                         </MDBNavItem>
+                        {/* TODO: Conditionally render the Login*/}
                         <MDBNavItem >
                             <MDBNavLink to="/login">Login</MDBNavLink>
                         </MDBNavItem>

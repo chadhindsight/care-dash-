@@ -40,11 +40,6 @@ const SignUp = (props) => {
             props.history.push("/profile")
         }).catch(err => console.log('bad juju!'))
     }
-    const googleSubmit = async (e) => {
-        e.preventDefault()
-        let google = await actions.googleReg()
-        console.log(google)
-    }
 
     return (
         <>
@@ -56,6 +51,7 @@ const SignUp = (props) => {
                 <input type="text" placeholder="symptoms/conditions" onChange={e=> setCondition(e.target.value)}/> */}
                 <MDBBtn color="default" onClick={handleSubmit}>Submit</MDBBtn>
             </form>
+            {/* Change image */}
             <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '80%' }}/>
             {/* <GoogleLogin
                 clientId="556929332950-si4a6sd3fktopq12klupsadi12l6sv1p.apps.googleusercontent.com"

@@ -107,7 +107,7 @@ removeFromCart = item => {
             onOrderSubmit={this.onOrderSubmit} removeFromCart={this.removeFromCart}/>} />
           <Route exact path="/profile" render={(props) => <Profile {...props} profile={this.state} 
             handleChange={this.handleChange} profileSubmit={this.state.profileSubmit} />} />
-
+          {/* SEND MAIL */}
           <Route exact path="/signup" render={(props) => <SignUp {...props} setUser={this.setUser} />} />
           <Route exact path="/product" render={(props) => <ProductInfo {...props} currentProduct={this.state.currentProduct} 
             addToCart={this.addToCart} />} /> 
