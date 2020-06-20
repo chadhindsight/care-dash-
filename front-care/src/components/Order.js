@@ -19,7 +19,7 @@ const Order = (props) => {
             <DeliveryPic style={{ position: 'relative', zIndex: '-1', marginBottom: '-5%', width: '50%', height: '50%' }} />
             <form>
                 <ul>{displayItems}</ul>
-                <MDBBtn className="default" style={{ position: 'relative', marginBottom: '55%'}}
+                <MDBBtn color="indigo" style={{ position: 'relative', marginBottom: '55%'}}
                 onClick={() => props.onOrderSubmit(props.cart) }>Place Order</MDBBtn>
             </form>
         </div>

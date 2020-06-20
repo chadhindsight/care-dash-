@@ -35,14 +35,7 @@ const SignUp = (props) => {
                 <MDBBtn color="indigo" onClick={handleSubmit}>Submit</MDBBtn>
             </form>
             {/* Change image */}
-            <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '80%' }}/>
-            {/* <GoogleLogin
-                clientId="556929332950-si4a6sd3fktopq12klupsadi12l6sv1p.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            /> */}
+            <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '70%' }}/>
         </>
     );
 }

@@ -23,7 +23,8 @@ const Login = (props) => {
             <form onSubmit={logInHandler}>
                 <input type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
                 <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <MDBBtn color="default" onClick={logInHandler}>Submit</MDBBtn>
+                <MDBBtn color="indigo" style={{ position: 'relative', zIndex: '-1', width: '50%' }} 
+                onClick={logInHandler}>Submit</MDBBtn>
                 <Signin/>
             </form>
 

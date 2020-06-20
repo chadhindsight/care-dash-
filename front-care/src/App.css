@@ -97,6 +97,9 @@ form {
     transform: rotate(360deg);
   }
 }
+ .button-deez {
+   background: '#6B63FF'
+ }
 
 /* width: 58%;
     height: 32px;
