@@ -1,22 +1,21 @@
 import React, {useState }from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import actions from '../services/index';
+import { Link} from 'react-router-dom';
+// import actions from '../services/index';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {
-    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-    MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
 
 const NavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const logOut = async () => {
-        await actions.logout()
-        props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null }) //FIX 
-        return <Redirect to='/target' />
-    }
+    // const logOut = async () => {
+    //     await actions.logout()
+    //     props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null }) //FIX 
+    //     return <Redirect to='/target' />
+    // }
 
     return (
         <>

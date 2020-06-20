@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchBar from './search/SearchBar';
-import actions from '../services/index'
 import {ReactComponent as Doc} from '../assets/doc.svg'
 
 const Home = (props) => {

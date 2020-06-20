@@ -1,10 +1,7 @@
 import React from 'react';
-import { Modal, Button } from 'antd';
-import actions from '../services/index';
+// import actions from '../services/index';
 import { MDBBtn } from "mdbreact";
 import { ReactComponent as DeliveryPic } from '../assets/delivery.svg'
-
-import {Link} from 'react-router-dom';
 
 const Order = (props) => {
 

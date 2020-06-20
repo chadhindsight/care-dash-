@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
-import { Form, Input, Button, Checkbox } from 'antd';
-import { GoogleLogin, useGoogleLogin } from 'react-google-login';
 import { ReactComponent as Signup } from '../../assets/signup.svg';
-import { MDBAlert, MDBBtn } from 'mdbreact';
+import { MDBBtn } from 'mdbreact';
 
 
 const SignUp = (props) => {
@@ -14,22 +12,7 @@ const SignUp = (props) => {
     const [fullname, setFullName] = useState('')
     // const [primaryPharmacy, setPharmacy] = useState('')
     // const [conditions, setCondition] = useState('')
-
-    const responseGoogle = async (response) => {
-        console.log(response.profileObj);
-        debugger
-        let username = response.profileObj.email
-        let googleId = response.profileObj.googleId
-        let password = response.profileObj.googleId
-        let fullname = response.profileObj.name
-
-        await actions.signup({ username, googleId, password, fullname }).then(user => {
-            props.setUser({ ...user.data })
-            console.log(user.data)
-            props.history.push("/profile")
-        })
-    }
-    
+  
     const handleSubmit = async (e) => {
         e.preventDefault();
         const userInformation = { email: username, fullname, password }

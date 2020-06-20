@@ -8,7 +8,7 @@ describe('Sign up flow', ()=>{
         const inputNode = component.getByPlaceholderText('username')
         expect(inputNode.value).toBe('')
     })
-
+    // Pawword fields check
     test('Should input password', () => {
         const component = render(<SignUp />)
         const inputNode = component.getByPlaceholderText('password')

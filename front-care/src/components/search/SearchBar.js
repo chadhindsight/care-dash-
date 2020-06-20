@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import { Input, AutoComplete, Spin } from 'antd';
+import {AutoComplete, Spin } from 'antd';
 
 import { Link } from 'react-router-dom';
 
-function getRandomInt(max, min = 0) {
-    return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
-}
 
 const Search = (query,meds) =>{
     console.log(query)
 
   return meds.slice(0,20).map((item, idx) => {
-            const category = `${query}${idx}`;
             return {
                 value: JSON.stringify(item),
                 label: (
