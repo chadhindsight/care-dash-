@@ -3,7 +3,6 @@ import { Link} from 'react-router-dom';
 // import actions from '../services/index';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
@@ -33,10 +32,16 @@ const NavBar = (props) => {
                         <MDBNavItem >
                             <MDBNavLink to="/">Signout</MDBNavLink>
                         </MDBNavItem>
-                        {/* TODO: Conditionally render the Login*/}
-                        <MDBNavItem >
-                            <MDBNavLink to="/login">Login</MDBNavLink>
-                        </MDBNavItem>
+                        {/* TODO: Conditionally render the Login OR Profile*/}
+                        
+                       {props.profile.user ?
+                            <MDBNavItem >
+                                <MDBNavLink to="/profile">Profile</MDBNavLink>
+                            </MDBNavItem> :
+                            <MDBNavItem>
+                                <MDBNavLink to="/login">Login</MDBNavLink>
+                            </MDBNavItem> 
+                    }
                         <MDBNavItem >
                             <MDBNavLink to="/signup">Signup</MDBNavLink>
                         </MDBNavItem>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
 import {  MDBBtn } from 'mdbreact';
+import {Link} from 'react-router-dom'
 import { ReactComponent as Signin } from '../../assets/signin.svg'
 
 const Login = (props) => {
@@ -23,8 +24,8 @@ const Login = (props) => {
             <form onSubmit={logInHandler} className="sign">
                 <input type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
                 <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <MDBBtn color="indigo" style={{ position: 'relative', zIndex: '-1' }} 
-                onClick={logInHandler}>Submit</MDBBtn>
+                <Link to="/profile"><MDBBtn color="indigo" style={{ position: 'relative', zIndex: '-1' }} 
+                onClick={logInHandler}>Submit</MDBBtn></Link>
                 <Signin style={{ width: '40%'}}
                     className="background-pic-login"/>
             </form>
