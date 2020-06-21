@@ -32,11 +32,6 @@ class  App extends Component {
        })
    }
    
-  showModal = () => {
-    this.setState({
-      show: true,
-    });
-  };
   setUser = (user) => this.setState(user)
 
   async componentDidMount() {
@@ -88,7 +83,7 @@ removeFromCart = item => {
       <div className="App">
 
         {JSON.stringify(this.state.results)}
-        <Navbar  userSet={this.setUser} />
+        <Navbar userSet={this.setUser} profile={this.state} />
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} 
             getResults={this.getResults} showInfo={this.showInfo} displayRankedMeds= {this.displayRankedMeds}/>} />
