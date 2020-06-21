@@ -36,7 +36,6 @@ class  App extends Component {
 
   async componentDidMount() {
     let user = await actions.isLoggedIn()
-    console.log(user.data.order)
     this.setState({ ...user.data })
   }
   
@@ -61,7 +60,6 @@ removeFromCart = item => {
   let newCart = this.state.cart
   if(newCart.length !== 0) newCart.splice(newCart.indexOf(item),1)
   this.setState({cart: newCart})
-  console.log(newCart)
 }
 // Place order
   onOrderSubmit = async (userOrder) => {
@@ -71,7 +69,7 @@ removeFromCart = item => {
 
   }
 
-// PROFILE EDIT STUFF 
+  // PROFILE EDIT STUFF 
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -79,6 +77,7 @@ removeFromCart = item => {
   };
 
   render() {
+
     return (
       <div className="App">
 
