@@ -6,15 +6,9 @@
 body {
   width: 100vw;
 }
-nav {
-  background: #eee;
-  width: 100%;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 2rem;
+.nav-items {
+  margin-left: 78%;
 }
-
 .search-bar{
   margin-top: -52%;
   z-index: 1;
