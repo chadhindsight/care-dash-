@@ -101,7 +101,8 @@ form {
     .log{
       display: flex;
       flex-direction: column;
-      background-color: #3F51B6;
+     background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(4,142,195,1) 55%, rgba(0,212,255,1) 100%, rgba(8,68,133,1) 100%);
       align-items: center;
       margin-top: 4%;
       margin-left: 25%;
