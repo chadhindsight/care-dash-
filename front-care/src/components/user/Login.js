@@ -22,8 +22,14 @@ const Login = (props) => {
     return (
         <>
             <form onSubmit={logInHandler} className="log">
+                <span className="symbol-input100">
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                </span>
                 <input className="input100" type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
                 <input className="input100" type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
+                <span className="symbol-input200">
+                    <i className="fa fa-lock" aria-hidden="true"></i>
+                </span>
                 <Link to="/profile"><MDBBtn color="secondary"  className="login100-form-btn"
                 onClick={logInHandler}>Submit</MDBBtn></Link>
                 <Signin style={{ width: '40%'}}
