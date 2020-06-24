@@ -96,24 +96,54 @@ form {
    background: '#6B63FF'
  }
 
-/* width: 58%;
-    height: 32px;
-    padding: 0 11px;
-    margin-top: 51%;
-    margin-left: 12%;
-    margin-right: 37%; */
 
-    .sign{
+/* COntainer for login */
+    .log{
       display: flex;
       flex-direction: column;
+      background-color: #3F51B6;
       align-items: center;
-      margin-top: 5%;
+      margin-top: 4%;
+      margin-left: 25%;
+      border-radius: 10px;
+      width: 50%;
     }
     
+
+    /* INPUT */
     input {
       margin: 1%;
     }
+    .input100 {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    display: block;
+    width: 80%;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+}
 /* Styling for the svgs*/
 .background-pic-login {
   margin-top: -2%;    
   }
+/* LOGIN BUTTON */
+.login100-form-btn {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 25px;
+    background: white;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+  
+}
