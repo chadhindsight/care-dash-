@@ -19,7 +19,6 @@ const Profile = (props) => {
                 </li>
         })
     }
-    console.log(props.profile.user) 
 
     return (
         <>
