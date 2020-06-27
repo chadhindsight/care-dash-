@@ -7,10 +7,11 @@ const Order = (props) => {
 
     const displayItems = props.cart.map(med => {
         return (
-            <div><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
-                <p><strong>Rating: {med.rating}</strong></p>
+            <><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
+                <h3><strong>Rating: {med.rating}</strong></h3>
+                <h4>Order total: ${Math.round(Math.random() * 20)}.00</h4>
                 <MDBBtn rounded color="danger" onClick={props.removeFromCart}>Remove</MDBBtn>
-            </div>
+            </>
         )
     })
 
