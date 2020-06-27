@@ -16,15 +16,15 @@ const Order = (props) => {
     })
 
     return (
-        <div>
-            <DeliveryPic style={{ position: 'relative', zIndex: '-1', marginBottom: '-5%', width: '50%', height: '50%' }} 
+        <section className="order-section">
+            <DeliveryPic style={{ position: 'relative', zIndex: '-1', marginBottom: '-8%', width: '50%', height: '50%' }} 
                 className="background-pic" />
             <form>
                 <ul>{displayItems}</ul>
-                <MDBBtn color="indigo" style={{ position: 'relative', marginBottom: '55%'}}
+                <MDBBtn color="indigo" style={{ position: 'relative'}}
                 onClick={() => props.onOrderSubmit(props.cart) }>Place Order</MDBBtn>
             </form>
-        </div>
+        </section>
     );
 };
 

@@ -153,3 +153,9 @@ form {
   flex-direction: row;
   position: absolute;
 }
+
+/* Order Section */
+.order-section{
+  height: 75%;
+  margin-bottom: 8%
+}
