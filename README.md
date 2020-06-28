@@ -1,20 +1,5 @@
-# IronPlate
-##### git fork and/or clone https://github.com/Tzikas/IronPlate.git
-## Start Server
-##### cd backend/ 
-##### npm i 
-##### nodemon 
-
-
-## Start client
-##### cd frontend/ 
-##### npm i 
-##### npm start
-
-
-## Deploy DB
-##### sign in with Atlas. 
-##### Get connection string and add it to .env file. MONGDB_URI = ...
+## CareDash
+A Delivery service for prescription drugs.
 
 ## Deploy to Heroku
 ##### heroku create 
