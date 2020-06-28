@@ -1,6 +1,6 @@
 import React, {useState }from 'react';
 import { Link} from 'react-router-dom';
-// import actions from '../services/index';
+import actions from '../services/index';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -9,12 +9,11 @@ import {
 
 const NavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false)
-
-    // const logOut = async () => {
-    //     await actions.logout()
-    //     props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null }) //FIX 
-    //     return <Redirect to='/target' />
-    // }
+    console.log(props.profile)
+    const logOut = async () => {
+        await actions.logout()
+        props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null, hash: null, order: null, salt: null }) //FIX 
+    }
 
     return (
         <>
@@ -29,12 +28,11 @@ const NavBar = (props) => {
                             <MDBNavLink to="/">Home</MDBNavLink>
                         </MDBNavItem>
                         {/* TODO: Conditionally render the Signout*/}
-                        <MDBNavItem >
-                            <MDBNavLink to="/">Signout</MDBNavLink>
+                        <MDBNavItem  onClick={()=>logOut()} >
+                            <MDBNavLink to="/">Logout</MDBNavLink>
                         </MDBNavItem>
-                        {/* TODO: Conditionally render the Login OR Profile*/}
                         
-                       {props.profile.user ?
+                       {props.profile.email ?
                             <MDBNavItem >
                                 <MDBNavLink to="/profile">Profile</MDBNavLink>
                             </MDBNavItem> :

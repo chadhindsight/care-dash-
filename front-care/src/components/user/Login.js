@@ -20,7 +20,7 @@ const Login = (props) => {
     }
 
     return (
-        <>
+        <div className="login-back">
             <form onSubmit={logInHandler} className="log">
                 <span className="symbol-input100">
                     <i className="fa fa-envelope" aria-hidden="true"></i>
@@ -36,7 +36,7 @@ const Login = (props) => {
                     className="background-pic-login"/>
             </form>
 
-        </>
+        </div>
     );
 };
 
