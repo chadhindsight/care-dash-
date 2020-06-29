@@ -21,8 +21,8 @@ const Profile = (props) => {
     }
 
     return (
-        <>
-            <h1>{props.profile.email} esfsf</h1>
+        <>  
+            <h2>Welcome Back {props.profile.email}</h2>
             <ul>{showOrder()}</ul>
         </>
     );
