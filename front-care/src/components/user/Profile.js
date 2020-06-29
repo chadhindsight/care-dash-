@@ -1,6 +1,8 @@
 import React from 'react';
+import { Card, Avatar} from 'antd';
+import { ReactComponent as ProfilePic } from '../../assets/profile.svg'
+
 // import actions from '../../services/index';
-// import { MDBBtn } from 'mdbreact';
 
 const Profile = (props) => {
 
@@ -9,7 +11,9 @@ const Profile = (props) => {
     //     // console.log("made it to submit", props.profile)
     //     let editedProfile = await actions.editProfile(props.profile)
     // }
-
+    
+    // // Meta let's you plug the user info into the antd Card
+    // const { Meta } = Card;
       
     const showOrder = () => {
         return props?.profile?.order?.map(med => {
@@ -21,10 +25,13 @@ const Profile = (props) => {
     }
 
     return (
-        <>  
-            <h2>Welcome Back {props.profile.email}</h2>
-            <ul>{showOrder()}</ul>
-        </>
+        <section className="profile">  
+            <Card>
+                <ProfilePic  style ={{ width: '12%', height: '2%'}}/>
+                <h2>Welcome Back {props.profile.email}</h2>
+                <ul>{showOrder()}</ul>
+            </Card>
+        </section>
     );
 };
 
