@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Avatar} from 'antd';
+import { Card} from 'antd';
 import { ReactComponent as ProfilePic } from '../../assets/profile.svg'
 
 // import actions from '../../services/index';
