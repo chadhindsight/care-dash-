@@ -77,7 +77,7 @@ removeFromCart = item => {
   };
 
   render() {
-
+    console.log(this.state)
     return (
       <div className="App">
 

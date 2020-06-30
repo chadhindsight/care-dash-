@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card} from 'antd';
-import { ReactComponent as ProfilePic } from '../../assets/profile.svg'
+import { ReactComponent as ProfilePic } from '../../assets/profile.svg';
+import { EditOutlined} from '@ant-design/icons';
 
 // import actions from '../../services/index';
 
@@ -26,7 +27,11 @@ const Profile = (props) => {
 
     return (
         <section className="profile">  
-            <Card hoverable>
+            <Card hoverable
+                actions={[
+                <EditOutlined key="edit" />,
+                ]}
+            >
                 
                 <ProfilePic  style ={{ width: '12%', height: '2%'}}/>
                 <h2>Welcome Back {props.profile.email}</h2>
