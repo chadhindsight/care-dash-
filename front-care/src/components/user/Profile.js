@@ -2,16 +2,18 @@ import React from 'react';
 import { Card} from 'antd';
 import { ReactComponent as ProfilePic } from '../../assets/profile.svg';
 import { EditOutlined} from '@ant-design/icons';
+// import actions from '../../services/index';
 
 // import actions from '../../services/index';
 
 const Profile = (props) => {
 
-    // const profileEditSubmit = async (e) => {
-    //     e.preventDefault()
-    //     // console.log("made it to submit", props.profile)
-    //     let editedProfile = await actions.editProfile(props.profile)
-    // }
+    const editProfile = async (e) => {
+        // e.preventDefault()
+        // console.log("made it to submit", props.profile)
+        // let editedProfile = await actions.editProfile(props.profile)
+        console.log('Edit Profile!')
+    }
     
     // // Meta let's you plug the user info into the antd Card
     // const { Meta } = Card;
@@ -29,8 +31,9 @@ const Profile = (props) => {
         <section className="profile">  
             <Card hoverable
                 actions={[
-                <EditOutlined key="edit" />,
+                <EditOutlined key="edit" onClick={editProfile}/>,
                 ]}
+                extra='Your Profile'
             >
                 
                 <ProfilePic  style ={{ width: '12%', height: '2%'}}/>

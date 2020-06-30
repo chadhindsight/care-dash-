@@ -1,19 +1,16 @@
 .App {
   text-align: center;
-  height: 100vh;
+  height: 75vh;
   margin-top: 0;
 }
 body {
   width: 100vw;
+  height: 100vh;
 }
 .nav-items {
   margin-left: 78%;
 }
-.search-bar{
-  margin-top: -52%;
-  z-index: 1;
-  position: 'relative'
-}
+
 
 li {
   list-style: none;
@@ -57,6 +54,12 @@ form {
   }
   form {
    margin-top: 25%;
+  }
+  footer{
+    height: 100vh;
+    
+    width: 100%;
+    overflow: hidden;
   }
 }
 /* FOR STYLING  IPAD*/
@@ -167,3 +170,15 @@ justify-content: center;
 align-items: center;
 margin-top: 5%;
 }
+
+/* Footer */
+footer {
+   background-color: #333;
+    padding: 50px;
+    color: #ecf0f1;
+    margin-top: 25%;
+
+}
+ .twitter-link:onhover {
+   color: #1DA1F2;
+ }
