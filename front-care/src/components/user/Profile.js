@@ -26,7 +26,8 @@ const Profile = (props) => {
 
     return (
         <section className="profile">  
-            <Card>
+            <Card hoverable>
+                
                 <ProfilePic  style ={{ width: '12%', height: '2%'}}/>
                 <h2>Welcome Back {props.profile.email}</h2>
                 <ul>{showOrder()}</ul>
