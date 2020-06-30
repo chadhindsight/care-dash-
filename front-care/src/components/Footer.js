@@ -9,7 +9,14 @@ const Footer = () => {
     return (
         <footer>
             Copyright © Chad Hinds {new Date().getFullYear()} - All Rights Reserved - CareDash
-            <IconFont type="icon-twitter"/>
+           
+            <ul class="social-links">
+                <li>
+                    <a href="https://twitter.com/Chadhindsight" rel="noopener noreferrer" target="_blank"> 
+                    <IconFont type="icon-twitter" />
+                    </a>
+                </li>
+            </ul>
         </footer>
     );
 };
