@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
-import { MDBBtn} from 'mdbreact';
-import {Link} from 'react-router-dom';
-import { Card } from 'antd';
-import { ReactComponent as Signin } from '../../assets/signin.svg'
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 
 const Login = (props) => {
     // REACT HOOKS HERE!
@@ -21,23 +18,23 @@ const Login = (props) => {
     }
 
     return (
-        <form>
-            <Card onSubmit={logInHandler} hoverable className="log-card">
-                <input type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)}
-                className="login-input"/>
-                <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)}
-                className="login-input"/>
-
-                <Link to="/profile"><MDBBtn color="secondary"  className="login100-Form-btn"
-                onClick={logInHandler}>Submit</MDBBtn></Link>
-                {/* <Signin style={{ width: '40%'}}
-                    className="background-pic-login"/> */}
-            </Card>
-        </form>
+        <MDBContainer >
+            <MDBRow>
+                <MDBCol>
+                    <form onSubmit={logInHandler} >
+                        <div className="grey-text" style={{ width: '70%' }}>
+                            <MDBInput label="Type your email" group type="email" validate error="wrong"
+                                success="right" onChange={e => setEmail(e.target.value)}/>
+                            <MDBInput label="Type your password" group type="password" validate onChange={e => setPassword(e.target.value)}/>
+                        </div>
+                    </form>
+                </MDBCol>
+            </MDBRow>
+            <MDBRow style={{ justifyContent: 'center' }}>
+                <MDBBtn onClick={logInHandler}>Login</MDBBtn>
+            </MDBRow>
+        </MDBContainer>
     );
 };
-
-{/* <input className="input100" type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
-    <input className="input100" type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} /> */}
 
 export default Login;
