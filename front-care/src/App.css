@@ -19,11 +19,10 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin: 0 ; 
 }
 form {
   /* for mobile margin-top: 25%; */
-    margin-top: 15%;
+   margin-top: 5%;
 }
 #remove {
   color: red;

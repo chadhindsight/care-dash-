@@ -17,13 +17,12 @@ const Order = (props) => {
 
     return (
         <section className="order-section">
-            <DeliveryPic style={{ position: 'relative', zIndex: '-1', marginBottom: '-8%', width: '50%', height: '50%' }} 
+            <DeliveryPic style={{ position: 'relative', zIndex: '-1', width: '50%', height: '50%' }} 
                 className="background-pic" />
-            <form>
+               
                 <ul>{displayItems}</ul>
                 <MDBBtn color="indigo" style={{ position: 'relative'}}
                 onClick={() => props.onOrderSubmit(props.cart) }>Place Order</MDBBtn>
-            </form>
         </section>
     );
 };
