@@ -11,7 +11,6 @@ const Login = (props) => {
         e.preventDefault()
         console.log(email, password)
         await actions.login({ email, password }).then(user => {
-            console.log(user, 'line 16')
             props.setUser({ ...user.data })
             props.history.push("/profile")
         }).catch((err) => console.log(err));
@@ -22,7 +21,7 @@ const Login = (props) => {
             <MDBRow>
                 <MDBCol>
                     <form onSubmit={logInHandler} >
-                        <div className="grey-text" style={{ width: '70%' }}>
+                        <div className="grey-text" style={{ width: '70%', display: 'flex', flexDirection:'column' }}>
                             <MDBInput label="Type your email" group type="email" validate error="wrong"
                                 success="right" onChange={e => setEmail(e.target.value)}/>
                             <MDBInput label="Type your password" group type="password" validate onChange={e => setPassword(e.target.value)}/>
