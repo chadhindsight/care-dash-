@@ -17,7 +17,7 @@ const Order = (props) => {
 
     return (
         <section className="order-section">
-            <DeliveryPic style={{ position: 'relative', zIndex: '-1', width: '50%', height: '50%' }} 
+            <DeliveryPic style={{ position: 'relative', marginTop: '4%', width: '68%', height: '68%' }} 
                 className="background-pic" />
                
                 <ul>{displayItems}</ul>
