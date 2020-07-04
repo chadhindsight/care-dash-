@@ -23,7 +23,7 @@ const Login = (props) => {
                     success="right" onChange={e => setEmail(e.target.value)} />
                 <MDBInput label="Type your password" size="lg" group type="password" validate onChange={e => setPassword(e.target.value)} />
                 <MDBRow style={{ justifyContent: 'center' }}>
-                    <MDBBtn onClick={logInHandler}>Login</MDBBtn>
+                    <MDBBtn color="indigo" onClick={logInHandler}>Login</MDBBtn>
                 </MDBRow>            
             </section>
         </form>
