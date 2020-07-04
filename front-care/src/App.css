@@ -104,9 +104,9 @@ nav {
 
 /* COntainer for login */
     form{
-      margin-top: 11%;
-      display: flex;
-      justify-content: center;
+    margin-top: 5%;     
+     display: flex;
+    justify-content: center;
     }
     
   .log-card {

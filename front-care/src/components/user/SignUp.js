@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
 import { ReactComponent as Signup } from '../../assets/signup.svg';
-import { MDBBtn } from 'mdbreact';
+import {MDBRow, MDBInput, MDBBtn } from 'mdbreact';
 
 
 const SignUp = (props) => {
@@ -26,16 +26,18 @@ const SignUp = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="sign">
-                <input type="text" name="username" placeholder="username" onChange={e => setUserName(e.target.value)} />
-                <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <input type="text" name="fullname" placeholder="fullname" onChange={e => setFullName(e.target.value)} />
-                {/* <input type="text" name="primaryPharmacy" placeholder="pharmacy" onChange={e => setPharmacy(e.target.value)} />
-                <input type="text" placeholder="symptoms/conditions" onChange={e=> setCondition(e.target.value)}/> */}
-                <MDBBtn color="indigo" onClick={handleSubmit}>Submit</MDBBtn>
+            <form onSubmit={handleSubmit}>
+                <section style={{ width: '60%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <MDBInput label="Username/Email" size="lg" onChange={e => setUserName(e.target.value)}/>
+                    <MDBInput label="Password"  size="lg" onChange={e => setPassword(e.target.value)}/>
+                    <MDBInput label="Full Name" size="lg" onChange={e => setFullName(e.target.value)}/>
+                    <MDBRow style={{ justifyContent: 'center' }}>
+                        <MDBBtn color="indigo" onClick={handleSubmit}>Submit</MDBBtn>
+                    </MDBRow>
+                </section>
             </form>
-            {/* Change image */}
-            <Signup style={{ position: 'relative', zIndex: '-1', width:'94%', height: '35%' }}
+
+            <Signup style={{position: 'relative', zIndex: '-1', width: '45%', height: '35%' }}
             className="background-pic"/>
         </>
     );

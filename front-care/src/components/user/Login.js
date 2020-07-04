@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import { MDBRow, MDBInput, MDBBtn } from 'mdbreact';
 
 const Login = (props) => {
     // REACT HOOKS HERE!
@@ -17,22 +17,16 @@ const Login = (props) => {
     }
 
     return (
-        <MDBContainer >
-            <MDBRow>
-                <MDBCol>
-                    <form onSubmit={logInHandler} >
-                        <div className="grey-text" style={{ width: '70%', display: 'flex', flexDirection:'column' }}>
-                            <MDBInput label="Type your email" group type="email" validate error="wrong"
-                                success="right" onChange={e => setEmail(e.target.value)}/>
-                            <MDBInput label="Type your password" group type="password" validate onChange={e => setPassword(e.target.value)}/>
-                        </div>
-                    </form>
-                </MDBCol>
-            </MDBRow>
-            <MDBRow style={{ justifyContent: 'center' }}>
-                <MDBBtn onClick={logInHandler}>Login</MDBBtn>
-            </MDBRow>
-        </MDBContainer>
+        <form onSubmit={logInHandler} >
+            <section className="grey-text" style={{ width: '60%', display: 'flex', flexDirection: 'column' }}>
+                <MDBInput label="Type your email" size="lg" group type="email" validate error="wrong"
+                    success="right" onChange={e => setEmail(e.target.value)} />
+                <MDBInput label="Type your password" size="lg" group type="password" validate onChange={e => setPassword(e.target.value)} />
+                <MDBRow style={{ justifyContent: 'center' }}>
+                    <MDBBtn onClick={logInHandler}>Login</MDBBtn>
+                </MDBRow>            
+            </section>
+        </form>
     );
 };
 
