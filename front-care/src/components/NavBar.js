@@ -34,18 +34,21 @@ const NavBar = (props) => {
                             <MDBNavLink to="/">Logout</MDBNavLink>
                         </MDBNavItem> : null
                         }
+
                        {props.profile.email ?
                             <MDBNavItem >
                                 <MDBNavLink to="/profile">Profile</MDBNavLink>
-                            </MDBNavItem> :
+                            </MDBNavItem>:
                             <MDBNavItem>
                                 <MDBNavLink to="/login">Login</MDBNavLink>
                             </MDBNavItem> 
                        }
+
                         {props.profile.email ?
-                        <MDBNavItem >
-                            <MDBNavLink to="/signup">Signup</MDBNavLink>
-                        </MDBNavItem> : null
+                          null :
+                            <MDBNavItem >
+                                <MDBNavLink to="/signup">Signup</MDBNavLink>
+                            </MDBNavItem>
                         }
                         <MDBNavItem >
                             <MDBNavLink to="/order"><FontAwesomeIcon icon={faCartPlus}/></MDBNavLink>
