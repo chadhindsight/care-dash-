@@ -17,12 +17,12 @@ const Order = (props) => {
 
     return (
         <section className="order-section">
-            <DeliveryPic style={{ position: 'relative', marginTop: '4%', width: '68%', height: '68%' }} 
+            <DeliveryPic style={{ position: 'relative', marginTop: '4%', width: '68%', height: '68%' }}
                 className="background-pic" />
-               
-                <ul>{displayItems}</ul>
-                <MDBBtn color="indigo" style={{ position: 'relative'}}
-                onClick={() => props.onOrderSubmit(props.cart) }>Place Order</MDBBtn>
+
+            <ul>{displayItems}</ul>
+            <MDBBtn color="indigo" style={{ position: 'relative' }}
+                onClick={() => props.onOrderSubmit(props.cart)}>Place Order</MDBBtn>
         </section>
     );
 };
