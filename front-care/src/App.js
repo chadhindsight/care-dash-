@@ -7,8 +7,10 @@ import SignUp from './components/user/SignUp'
 import Navbar from './components/NavBar';
 import Order from './components/Order';
 import ProductInfo from './components/search/ProductInfo';
-import actions from './services/index';
 import Footer from './components/Footer';
+import About from './components/About';
+
+import actions from './services/index';
 
 class  App extends Component {
   state = {
@@ -90,10 +92,12 @@ removeFromCart = item => {
             onOrderSubmit={this.onOrderSubmit} removeFromCart={this.removeFromCart}/>} />
           <Route exact path="/profile" render={(props) => <Profile {...props} profile={this.state} 
             handleChange={this.handleChange} profileSubmit={this.state.profileSubmit} />} />
-          {/* SEND MAIL */}
+
           <Route exact path="/signup" render={(props) => <SignUp {...props} setUser={this.setUser} />} />
           <Route exact path="/product" render={(props) => <ProductInfo {...props} currentProduct={this.state.currentProduct} 
             addToCart={this.addToCart} />} /> 
+          <Route exact path="/about" render={(props) => <About {...props} />} />
+  
         </Switch>
         <Footer />
       </div>
