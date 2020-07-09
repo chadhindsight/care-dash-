@@ -49,10 +49,11 @@ const NavBar = (props) => {
                                 <MDBNavLink to="/signup">Signup</MDBNavLink>
                             </MDBNavItem>
                         }
+                        <MDBNavItem>
+                            <MDBNavLink to="/about">About</MDBNavLink>
+                        </MDBNavItem>
                         <MDBNavItem >
                             <MDBNavLink to="/order"><FontAwesomeIcon icon={faCartPlus}/></MDBNavLink>
-                        </MDBNavItem>
-                        <MDBNavItem>
                         </MDBNavItem>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
