@@ -1,3 +1,5 @@
 /backend/node_modules
 /front-care/node_modules
 /backend/.env
+node_modules
+.env

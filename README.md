@@ -1,6 +1,8 @@
 ## CareDash
 A Delivery service for prescription drugs.
 
+### How it works
+
 ## Deploy to Heroku
 ##### heroku create 
 ##### git add . 
