@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require('../config/passport');
 const Medicine = require('../models/Medicine'); 
 const User = require ('../models/User');
+require('dotenv').config();
+
 // Package that sends emails
 const sgMail = require('@sendgrid/mail')
 
@@ -33,7 +35,7 @@ function isAuth(req, res, next) {
 module.exports = router;
 
 // Method that lets send grid set your api key
-// sgMail.setApiKey(sendgridAPIKey)
+// sgMail.setApiKey(process.env.sendgridAPIKey)
 
 // sgMail.send({
 //     // 
