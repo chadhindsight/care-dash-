@@ -35,7 +35,6 @@ const SearchBar = (props) => {
         timeout = setTimeout(async() => {
             let results = await props.getResults(value)
             // setOptions(value ? Search(value) : []);
-            console.log(results)
             setOptions(Search(value, results.data.meds))
         }, 1000);
 
@@ -43,11 +42,11 @@ const SearchBar = (props) => {
 
     const onSelect = value => {
         value = JSON.parse(value)
-        console.log('onSelect', value);
+
         setValue(value.drugName)
         props.showInfo(value)
     };
-    console.log(options)
+
     return (
         <AutoComplete className='search-bar'
             dropdownMatchSelectWidth={252}

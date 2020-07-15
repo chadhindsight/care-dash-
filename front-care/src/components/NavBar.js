@@ -9,7 +9,7 @@ import {
 
 const NavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false)
-    console.log(props.profile)
+    
     const logOut = async () => {
         await actions.logout()
         props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null, hash: null, order: null, salt: null }) //FIX 
