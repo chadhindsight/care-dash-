@@ -37,10 +37,11 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/profile', isAuth, (req, res, next) => {
-  User.findById(req.user._id)
+  const test = User.findById(req.user._id)
     .then(user => {
       res.status(200).json({ user })
     })
+    console.log(test)
     .catch((err) => res.status(500).json({ err }));
 });
 
