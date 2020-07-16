@@ -12,7 +12,6 @@ const sgMail = require('@sendgrid/mail')
 router.get('/search', (req, res, next) => {
     // //DB SEARCH HERE
     Medicine.find({ drugName: { $regex: req.query.name, $options: 'i' }}).limit(20).then(meds => {
-        // console.log(meds)
         res.json({meds})
     })
         .catch(err => console.log("Cannot find medication"))
@@ -22,9 +21,19 @@ router.get('/search', (req, res, next) => {
 //Backend portion of checking out
 router.post('/order', isAuth, (req, res, next) => {
     console.log(req.body)
-    //Target the specific user's order array
-    User.findByIdAndUpdate({ _id: req.user._id }, { order: req.body }, { new: true }).then(x => console.log(x))
-    .catch(err => res.json('Please ign in'))
+
+    sgMail.send({ 
+    to: `chaddyjizzle@gmail.com`,
+    from: 'chaddyjizzle@gmail.com',
+    subject: 'Order Confirmation',
+    text: `Thank you for your order. We're working on it!`
+})
+
+    // //Target the specific user's info
+    // let destinedUser = User.findById({ _id: req.user._id }, () =>{
+    //     email
+    //     console.log(email)
+    // })
 
     });
 
@@ -39,7 +48,7 @@ module.exports = router;
 
 // sgMail.send({
 //     // 
-//     to: '',
+//     to: `chaddyjizzle@gmail.com`,
 //     from: 'chaddyjizzle@gmail.com',
 //     subject: 'Order Confirmation',
 //     text: `Thank you for your order. We're working on it!`
