@@ -65,8 +65,7 @@ removeFromCart = item => {
 }
 // Place order
   onOrderSubmit = async (userOrder) => {
-    // console.log(userOrder)
-    // let re = await actions.placeOrder(userOrder)
+    let re = await actions.placeOrder(userOrder)
     this.setState({show: true})
 
   }
