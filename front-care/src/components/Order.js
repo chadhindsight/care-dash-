@@ -1,10 +1,9 @@
 import React from 'react';
 // import actions from '../services/index';
-import { MDBBtn } from "mdbreact";
+import { MDBBtn, MDBAlert } from "mdbreact";
 import { ReactComponent as DeliveryPic } from '../assets/delivery.svg'
 
-const Order = (props) => {
-
+const Order = (props) => {    
     const displayItems = props.cart.map(med => {
         return (
             <><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
@@ -14,15 +13,18 @@ const Order = (props) => {
             </>
         )
     })
-
+    console.log(props.show)
     return (
         <section className="order-section">
             <DeliveryPic style={{ position: 'relative', marginTop: '4%', width: '68%', height: '68%' }}
                 className="background-pic" />
 
+            {props.show=== true ? <div style={{ width: '300px', position: 'relative', textAlign: 'center', margin: '0 40%', zIndex: '3' }}>
+                <MDBAlert color="success">Added to cart</MDBAlert></div> : ''}
+
             <ul>{displayItems}</ul>
             <MDBBtn color="indigo" style={{ position: 'relative' }}
-                onClick={() => props.onOrderSubmit(props.cart)}>Place Order</MDBBtn>
+                onClick={() => props.onOrderSubmit()}>Place Order</MDBBtn>
         </section>
     );
 };
