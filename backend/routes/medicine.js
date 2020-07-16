@@ -22,12 +22,12 @@ router.get('/search', (req, res, next) => {
 router.post('/order', isAuth, (req, res, next) => {
     console.log(req.body)
 
-    sgMail.send({ 
-    to: `chaddyjizzle@gmail.com`,
-    from: 'chadrickj8@gmail.com',
-    subject: 'Order Confirmation',
-    text: `Thank you for your order. We're working on it!`
-})
+//     sgMail.send({ 
+//     to: `chaddyjizzle@gmail.com`,
+//     from: 'chadrickj8@gmail.com',
+//     subject: 'Order Confirmation',
+//     text: `Thank you for your order. We're working on it!`
+// })
 
     // //Target the specific user's info
     // let destinedUser = User.findById({ _id: req.user._id }, () =>{
