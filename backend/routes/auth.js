@@ -3,6 +3,9 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('../config/passport');
 
+// Package that sends emails
+const sgMail = require('@sendgrid/mail');
+
 
 router.post('/signup', (req, res, next) => {
   console.log(req.body.username)
@@ -18,6 +21,20 @@ router.post('/signup', (req, res, next) => {
     });
 });
 
+// User orders medicine
+router.get('/order', async (req, res) => {
+  User.findById(req.user._id).then(butt => {
+
+    // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+    console.log(butt)
+    // sgMail.send({
+    //     to: `${butt.email}`,
+    //     from: 'chadrickj8@gmail.com',
+    //     subject: 'Just testing an app',
+    //     text: 'I hope this one actually gets through! I will never be successful.'
+    // }).catch(err => console.log("ass"))
+  }).catch(err => console.log("ass"))
+})
 
 //return await service.get('/is-logged-in');
 router.get('/is-logged-in', (req, res, next) => {  
@@ -37,11 +54,10 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/profile', isAuth, (req, res, next) => {
-  const test = User.findById(req.user._id)
+  User.findById(req.user._id)
     .then(user => {
       res.status(200).json({ user })
     })
-    console.log(test)
     .catch((err) => res.status(500).json({ err }));
 });
 
