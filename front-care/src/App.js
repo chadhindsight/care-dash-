@@ -64,12 +64,19 @@ removeFromCart = item => {
   this.setState({cart: newCart})
 }
 // Place order
-  onOrderSubmit = async (userOrder) => {
-    let re = await actions.placeOrder(userOrder)
-    console.log(re)
+  onOrderSubmit = () => {
 
+    // clear cart stored in state upon completion of order
+   if(this.state.cart.length === 0) console.log('Please add an item to your cart')
+    
+   else {
+     this.setState({
+       cart: [],
+       show: true
+     })
+     console.log('Cafo')
+   }
   }
-
   // PROFILE EDIT STUFF 
   handleChange = e => {
     this.setState({
@@ -87,8 +94,12 @@ removeFromCart = item => {
           <Route exact path="/" render={(props) => <Home {...props} 
             getResults={this.getResults} showInfo={this.showInfo} displayRankedMeds= {this.displayRankedMeds}/>} />
           <Route exact path="/login" render={(props) => <Login {...props} setUser={this.setUser} />} />
-          <Route exact path="/order" render={(props) => <Order {...props} cart={this.state.cart} 
-            onOrderSubmit={this.onOrderSubmit} removeFromCart={this.removeFromCart}/>} />
+
+          <Route exact path="/order" render={(props) => <Order {...props} show={this.state.show} 
+            cart={this.state.cart} 
+            onOrderSubmit={this.onOrderSubmit} 
+            removeFromCart={this.removeFromCart}/>} />
+
           <Route exact path="/profile" render={(props) => <Profile {...props} profile={this.state} 
             handleChange={this.handleChange} profileSubmit={this.state.profileSubmit} />} />
 
