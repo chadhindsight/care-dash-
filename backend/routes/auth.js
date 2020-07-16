@@ -23,17 +23,17 @@ router.post('/signup', (req, res, next) => {
 
 // User orders medicine
 router.get('/order', async (req, res) => {
-  User.findById(req.user._id).then(butt => {
+  User.findById(req.user._id).then(stuff => {
 
-    // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-    console.log(butt)
-    // sgMail.send({
-    //     to: `${butt.email}`,
-    //     from: 'chadrickj8@gmail.com',
-    //     subject: 'Just testing an app',
-    //     text: 'I hope this one actually gets through! I will never be successful.'
-    // }).catch(err => console.log("ass"))
-  }).catch(err => console.log("ass"))
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+    console.log(stuff)
+    sgMail.send({
+        to: `${stuff.email}`,
+        from: 'chadrickj8@gmail.com',
+        subject: 'Just testing an app',
+        text: 'I hope this one actually gets through! I will never be successful.'
+    }).catch(err => console.log("junk"))
+  }).catch(err => console.log("junk"))
 })
 
 //return await service.get('/is-logged-in');
