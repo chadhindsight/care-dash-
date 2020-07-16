@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import actions from '../services/index';
 import { MDBBtn, MDBAlert } from "mdbreact";
 import { ReactComponent as DeliveryPic } from '../assets/delivery.svg'
 
 const Order = (props) => {    
+    const [show, setShow] = useState(false)
+
+    function onOrderSubmit() {
+        props.addToCart(props.currentProduct)
+        setShow(true)
+        setTimeout(() => {
+            setShow(false)
+        }, 2000);
+    }
+
     const displayItems = props.cart.map(med => {
         return (
             <><li key={med.uniqueID}><h2>{med.drugName}</h2></li>
@@ -19,12 +29,13 @@ const Order = (props) => {
             <DeliveryPic style={{ position: 'relative', marginTop: '4%', width: '68%', height: '68%' }}
                 className="background-pic" />
 
-            {props.show === true ? <div style={{ width: '300px', position: 'relative', textAlign: 'center', margin: '0 40%', zIndex: '3' }}>
-                <MDBAlert color="success">Thank you for your order!</MDBAlert></div> : <p>Items added to your cart will be show here</p>}
+            {show? <div style={{ width: '300px', position: 'relative', textAlign: 'center', margin: '0 40%', zIndex: '3' }}>
+                <MDBAlert color="success">Thank you for your order!</MDBAlert></div> : 
+                <p>Items added to your cart will be show here</p> }
 
             <ul>{displayItems}</ul>
             <MDBBtn color="indigo" style={{ position: 'relative' }}
-                onClick={() => props.onOrderSubmit()}>Place Order</MDBBtn>
+                onClick={() => onOrderSubmit()}>Place Order</MDBBtn>
         </section>
     );
 };

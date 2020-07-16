@@ -17,7 +17,6 @@ class  App extends Component {
     cart: [],
     currentProduct: {},
     medications: null,
-    show: false
   }
 
    displayRankedMeds = async ()=> {
@@ -66,16 +65,10 @@ removeFromCart = item => {
 // Place order
   onOrderSubmit = () => {
 
-    // clear cart stored in state upon completion of order
-   if(this.state.cart.length === 0) console.log('Please add an item to your cart')
-    
-   else {
+    // clear cart stored in state only if there is at least one item in it
      this.setState({
-       cart: [],
-       show: true
+       cart: []
      })
-     console.log('Cafo')
-   }
   }
   // PROFILE EDIT STUFF 
   handleChange = e => {
