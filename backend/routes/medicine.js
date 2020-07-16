@@ -24,7 +24,7 @@ router.post('/order', isAuth, (req, res, next) => {
 
     sgMail.send({ 
     to: `chaddyjizzle@gmail.com`,
-    from: 'chaddyjizzle@gmail.com',
+    from: 'chadrickj8@gmail.com',
     subject: 'Order Confirmation',
     text: `Thank you for your order. We're working on it!`
 })
