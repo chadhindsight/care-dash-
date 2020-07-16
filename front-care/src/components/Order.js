@@ -7,7 +7,6 @@ const Order = (props) => {
     const [show, setShow] = useState(false)
 
     function onOrderSubmit() {
-        props.addToCart(props.currentProduct)
         setShow(true)
         setTimeout(() => {
             setShow(false)
