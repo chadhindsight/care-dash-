@@ -27,7 +27,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["https://care-dash.netlify.app"] 
+    origin: ["http://localhost:3000", "https://care-dash.netlify.app"] 
   })
 );
 
