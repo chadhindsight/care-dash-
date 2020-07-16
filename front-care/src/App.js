@@ -62,14 +62,7 @@ removeFromCart = item => {
   if(newCart.length !== 0) newCart.splice(newCart.indexOf(item),1)
   this.setState({cart: newCart})
 }
-// Place order
-  onOrderSubmit = () => {
 
-    // clear cart stored in state only if there is at least one item in it
-     this.setState({
-       cart: []
-     })
-  }
   // PROFILE EDIT STUFF 
   handleChange = e => {
     this.setState({
@@ -90,7 +83,6 @@ removeFromCart = item => {
 
           <Route exact path="/order" render={(props) => <Order {...props} show={this.state.show} 
             cart={this.state.cart} 
-            onOrderSubmit={this.onOrderSubmit} 
             removeFromCart={this.removeFromCart}/>} />
 
           <Route exact path="/profile" render={(props) => <Profile {...props} profile={this.state} 

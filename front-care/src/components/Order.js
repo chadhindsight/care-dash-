@@ -29,9 +29,10 @@ const Order = (props) => {
                 className="background-pic" />
 
             {show? <div style={{ width: '300px', position: 'relative', textAlign: 'center', margin: '0 40%', zIndex: '3' }}>
-                <MDBAlert color="success">Thank you for your order!</MDBAlert></div> : 
-                <p>Items added to your cart will be show here</p> }
+                <MDBAlert color="success">Thank you for your order!</MDBAlert></div> : '' }
 
+            {props.cart.length === 0 ? <p>Items added to your cart will be show here</p> : ''}
+            
             <ul>{displayItems}</ul>
             <MDBBtn color="indigo" style={{ position: 'relative' }}
                 onClick={() => onOrderSubmit()}>Place Order</MDBBtn>
