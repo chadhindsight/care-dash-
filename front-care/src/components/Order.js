@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { MDBBtn, MDBAlert } from "mdbreact";
 import { ReactComponent as DeliveryPic } from '../assets/delivery.svg'
 
-const Order = (props) => {    
+const Order = (props) => { 
+    // Piece of state that changes when user places an order 
     const [show, setShow] = useState(false)
 
     function onOrderSubmit() {
@@ -22,7 +23,7 @@ const Order = (props) => {
             </>
         )
     })
-    console.log(props.show)
+
     return (
         <section className="order-section">
             <DeliveryPic style={{ position: 'relative', marginTop: '4%', width: '68%', height: '68%' }}
@@ -30,7 +31,7 @@ const Order = (props) => {
 
             {show? <div style={{ width: '300px', position: 'relative', textAlign: 'center', margin: '0 40%', zIndex: '3' }}>
                 <MDBAlert color="success">Thank you for your order!</MDBAlert></div> : '' }
-
+            
             {props.cart.length === 0 ? <p>Items added to your cart will be show here</p> : ''}
             
             <ul>{displayItems}</ul>
