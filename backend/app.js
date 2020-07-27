@@ -23,7 +23,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-// This takes care of any cors errors
+// This takes care of any cors errors by passing in the front end address
 app.use(
   cors({
     credentials: true,
