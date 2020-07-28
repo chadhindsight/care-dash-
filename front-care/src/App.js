@@ -21,7 +21,7 @@ class  App extends Component {
 
    displayRankedMeds = async ()=> {
      let results = await actions.rankedMeds(1)
-     this.setState({ medications: results.data.meds })
+     this.setState({medications: results.data.meds})
 
        return this.state.medications.map(drug => {
          return (
