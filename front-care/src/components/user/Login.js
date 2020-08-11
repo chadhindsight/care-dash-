@@ -3,7 +3,7 @@ import actions from '../../services/index';
 import { MDBRow, MDBInput, MDBBtn } from 'mdbreact';
 
 const Login = (props) => {
-    // REACT HOOKS HERE!
+    // REACT HOOKS
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -24,7 +24,7 @@ const Login = (props) => {
                 <MDBInput label="Type your password" size="lg" group type="password" validate onChange={e => setPassword(e.target.value)} />
                 <MDBRow style={{ justifyContent: 'center' }}>
                     <MDBBtn color="indigo" onClick={logInHandler}>Login</MDBBtn>
-                </MDBRow>            
+                </MDBRow>
             </section>
         </form>
     );
