@@ -19,7 +19,7 @@ const Login = (props) => {
     return (
         <form onSubmit={logInHandler} >
             <section className="grey-text" style={{ width: '60%', display: 'flex', flexDirection: 'column' }}>
-                <MDBInput label="Type your email" size="lg" group type="email" validate error="wrong"
+                <MDBInput label="Please enter your email" size="lg" group type="email" validate error="wrong"
                     success="right" onChange={e => setEmail(e.target.value)} />
                 <MDBInput label="Please enter your password" size="lg" group type="password" validate onChange={e => setPassword(e.target.value)} />
                 <MDBRow style={{ justifyContent: 'center' }}>
