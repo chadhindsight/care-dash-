@@ -1,5 +1,5 @@
-import React, {useState }from 'react';
-import { Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import actions from '../services/index';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,25 +9,25 @@ import {
 
 const NavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false)
-    
+
     const logOut = async () => {
         await actions.logout()
         props.userSet({ email: null, createdAt: null, updatedAt: null, _id: null, hash: null, order: null, salt: null }) //FIX 
     }
 
     return (
-        <>
+        <div>
             <MDBNavbar id="nav" color="indigo" dark expand="md" >
-               <Link to='/'> <MDBNavbarBrand>
+                <Link to='/'> <MDBNavbarBrand>
                     <strong className="white-text">CareDash</strong>
                 </MDBNavbarBrand></Link>
-                <MDBNavbarToggler onClick={()=> setIsOpen(!isOpen)} />
-                 <MDBCollapse id="navbarCollapse3"  isOpen={isOpen} navbar> 
-                    <MDBNavbarNav left onClick={() => setIsOpen(!isOpen)} className="nav-items"> 
+                <MDBNavbarToggler onClick={() => setIsOpen(!isOpen)} />
+                <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
+                    <MDBNavbarNav left onClick={() => setIsOpen(!isOpen)} className="nav-items">
                         <MDBNavItem className="nav-item" >
                             <MDBNavLink to="/">Home</MDBNavLink>
                         </MDBNavItem>
-                        
+
                         {props.profile.email ?
                             <MDBNavItem >
                                 <MDBNavLink to="/profile">Profile</MDBNavLink>
@@ -38,13 +38,13 @@ const NavBar = (props) => {
                         }
                         {/*Conditionally render the Signout & login/profile*/}
                         {props.profile.email ?
-                        <MDBNavItem  onClick={()=>logOut()} >
-                            <MDBNavLink to="/">Logout</MDBNavLink>
-                        </MDBNavItem> : null
+                            <MDBNavItem onClick={() => logOut()} >
+                                <MDBNavLink to="/">Logout</MDBNavLink>
+                            </MDBNavItem> : null
                         }
 
                         {props.profile.email ?
-                          null :
+                            null :
                             <MDBNavItem >
                                 <MDBNavLink to="/signup">Signup</MDBNavLink>
                             </MDBNavItem>
@@ -53,7 +53,7 @@ const NavBar = (props) => {
                             <MDBNavLink to="/about">About</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem >
-                            <MDBNavLink to="/order"><FontAwesomeIcon icon={faCartPlus}/></MDBNavLink>
+                            <MDBNavLink to="/order"><FontAwesomeIcon icon={faCartPlus} /></MDBNavLink>
                         </MDBNavItem>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
@@ -69,7 +69,7 @@ const NavBar = (props) => {
             <Link to="/signup">Signup</Link>
             <Link to="/" onClick={logOut}>Logout</Link>
             <Link to="/order">View Cart</Link> */}
-        </>
+        </div>
     );
 };
 
