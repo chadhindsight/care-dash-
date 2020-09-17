@@ -9,8 +9,8 @@ const Footer = () => {
     return (
         <footer>
             <h5 id="footer-text">Copyright © Chad Hinds {new Date().getFullYear()} - All Rights Reserved - CareDash</h5>
-           
-           <section className="ass">
+
+            <section className="ass">
                 <ul className="social-links">
                     <li>
                         <a href="http://chadhindsight.github.io" rel="noopener noreferrer" target="_blank">
@@ -33,7 +33,7 @@ const Footer = () => {
                         </a>
                     </li>
                 </ul>
-           </section>
+            </section>
         </footer>
     );
 };
