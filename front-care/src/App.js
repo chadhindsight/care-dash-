@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import About from './components/About';
 
 import actions from './services/index';
-
+// Old school React class componnent
 class App extends Component {
   state = {
     cart: [],
