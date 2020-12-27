@@ -16,6 +16,6 @@ router.get('/search', (req, res, next) => {
 
 
 function isAuth(req, res, next) {
-    req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });
+    req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Please log in or signup' });
 }
 module.exports = router;
