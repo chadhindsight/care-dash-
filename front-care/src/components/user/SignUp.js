@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
-import { Form, Input, Button, Checkbox } from 'antd';
-import { GoogleLogin, useGoogleLogin } from 'react-google-login';
 import { ReactComponent as Signup } from '../../assets/signup.svg';
-import { MDBAlert, MDBBtn } from 'mdbreact';
+import {MDBRow, MDBInput, MDBBtn } from 'mdbreact';
 
 
 const SignUp = (props) => {
@@ -14,22 +12,7 @@ const SignUp = (props) => {
     const [fullname, setFullName] = useState('')
     // const [primaryPharmacy, setPharmacy] = useState('')
     // const [conditions, setCondition] = useState('')
-
-    const responseGoogle = async (response) => {
-        console.log(response.profileObj);
-        debugger
-        let username = response.profileObj.email
-        let googleId = response.profileObj.googleId
-        let password = response.profileObj.googleId
-        let fullname = response.profileObj.name
-
-        await actions.signup({ username, googleId, password, fullname }).then(user => {
-            props.setUser({ ...user.data })
-            console.log(user.data)
-            props.history.push("/profile")
-        })
-    }
-    
+  
     const handleSubmit = async (e) => {
         e.preventDefault();
         const userInformation = { email: username, fullname, password }
@@ -40,30 +23,22 @@ const SignUp = (props) => {
             props.history.push("/profile")
         }).catch(err => console.log('bad juju!'))
     }
-    const googleSubmit = async (e) => {
-        e.preventDefault()
-        let google = await actions.googleReg()
-        console.log(google)
-    }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="username" placeholder="username" onChange={e => setUserName(e.target.value)} />
-                <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <input type="text" name="fullname" placeholder="fullname" onChange={e => setFullName(e.target.value)} />
-                {/* <input type="text" name="primaryPharmacy" placeholder="pharmacy" onChange={e => setPharmacy(e.target.value)} />
-                <input type="text" placeholder="symptoms/conditions" onChange={e=> setCondition(e.target.value)}/> */}
-                <MDBBtn color="default" onClick={handleSubmit}>Submit</MDBBtn>
+                <section style={{ width: '60%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <MDBInput label="Username/Email" size="lg" onChange={e => setUserName(e.target.value)}/>
+                    <MDBInput label="Password"  size="lg" onChange={e => setPassword(e.target.value)}/>
+                    <MDBInput label="Full Name" size="lg" onChange={e => setFullName(e.target.value)}/>
+                    <MDBRow style={{ justifyContent: 'center' }}>
+                        <MDBBtn color="indigo" onClick={handleSubmit}>Submit</MDBBtn>
+                    </MDBRow>
+                </section>
             </form>
-            <Signup style={{ position: 'relative', zIndex: '-1', marginTop: '-19.5%', width: '80%' }}/>
-            <GoogleLogin
-                clientId="556929332950-si4a6sd3fktopq12klupsadi12l6sv1p.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
+
+            <Signup style={{position: 'relative', zIndex: '-1', width: '45%', height: '35%' }}
+            className="background-pic"/>
         </>
     );
 }

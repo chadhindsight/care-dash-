@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import { Input, AutoComplete, Spin } from 'antd';
+import {AutoComplete, Spin } from 'antd';
 
 import { Link } from 'react-router-dom';
 
-function getRandomInt(max, min = 0) {
-    return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
-}
 
 const Search = (query,meds) =>{
     console.log(query)
 
   return meds.slice(0,20).map((item, idx) => {
-            const category = `${query}${idx}`;
             return {
                 value: JSON.stringify(item),
                 label: (
@@ -39,7 +35,6 @@ const SearchBar = (props) => {
         timeout = setTimeout(async() => {
             let results = await props.getResults(value)
             // setOptions(value ? Search(value) : []);
-            console.log(results)
             setOptions(Search(value, results.data.meds))
         }, 1000);
 
@@ -47,11 +42,11 @@ const SearchBar = (props) => {
 
     const onSelect = value => {
         value = JSON.parse(value)
-        console.log('onSelect', value);
+
         setValue(value.drugName)
         props.showInfo(value)
     };
-    console.log(options)
+
     return (
         <AutoComplete className='search-bar'
             dropdownMatchSelectWidth={252}

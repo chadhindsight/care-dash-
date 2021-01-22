@@ -23,16 +23,13 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-
+// This takes care of any cors errors by passing in the front end address
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "https://care-dash.netlify.app"] //Swap this with the client url 
+    origin: ["http://localhost:3000", "https://care-dash.netlify.app"] 
   })
 );
-
-
-
 
 app.use(
   session({

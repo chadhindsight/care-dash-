@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Card } from 'antd';
-import { faCapsules } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCapsules } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  MDBAlert, MDBBtn } from 'mdbreact';
 
 const ProductInfo = (props) =>{

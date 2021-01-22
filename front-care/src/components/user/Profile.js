@@ -1,34 +1,43 @@
 import React from 'react';
-import actions from '../../services/index';
-import { MDBBtn } from 'mdbreact';
+import { Card} from 'antd';
+import { ReactComponent as ProfilePic } from '../../assets/profile.svg';
+import { EditOutlined} from '@ant-design/icons';
+
 
 const Profile = (props) => {
 
-    const profileSubmit = async (e) => {
-        e.preventDefault()
-        console.log("made it to submit", props.profile)
-        let newProfile = await actions.editProfile(props.profile)
-
-        console.log(newProfile)
+    const editProfile = async (e) => {
+        // e.preventDefault()
+        // console.log("made it to submit", props.profile)
+        // let editedProfile = await actions.editProfile(props.profile)
+        console.log('Edit Profile!')
     }
-
     
+    // // Meta let's you plug the user info into the antd Card
+    // const { Meta } = Card;
+      
     const showOrder = () => {
         return props?.profile?.order?.map(med => {
-            return <li key={med.uniqueID}>{med.drugName}</li>
+            return <li key={med.uniqueID}>
+                <h3>{med.drugName}</h3>
+                <p>Rating: {med.rating}</p>
+                </li>
         })
     }
-    return (
-        <>
-            <h1>{props.profile.email}</h1>
-            <ul>{showOrder()}</ul>
-            <form onSubmit={(e) => profileSubmit(e)}>
-                <input placeholder="email" name="email" onBlur={props.handleBlur} onChange={props.handleChange} />
-                <input placeholder="primary pharmacy" name="primaryPharm" onBlur={props.handleBlur} onChange={props.handleChange} />
 
-                <MDBBtn color="secondary" onClick={profileSubmit}>Submit</MDBBtn>
-            </form>
-        </>
+    return (
+        <section className="profile">  
+            <Card hoverable
+                actions={[
+                <EditOutlined key="edit" onClick={editProfile}/>,
+                ]}
+                extra='Your Profile' >
+                
+                <ProfilePic  style ={{ width: '12%', height: '2%'}}/>
+                <h2>Welcome Back {props.profile.email}</h2>
+                <ul>{showOrder()}</ul>
+            </Card>
+        </section>
     );
 };
 

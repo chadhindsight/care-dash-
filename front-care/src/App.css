@@ -1,25 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 .App {
   text-align: center;
-  height: 100vh;
+  height: 75vh;
   margin-top: 0;
 }
 body {
   width: 100vw;
+  height: 100vh;
+  /* font-family: 'Baloo Thambi 2', cursive; */
+  font-family: 'Lato', sans-serif;
 }
-nav {
-  background: #eee;
-  width: 100%;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 2rem;
+.nav-items {
+  margin-left: 78%;
 }
 
-.search-bar{
-  margin-top: -52%;
-  z-index: 1;
-  position: 'relative'
-}
 
 li {
   list-style: none;
@@ -28,13 +22,8 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  /* justify-content: flex-end; */
-  margin: 0 ; 
 }
-form {
-  /* for mobile margin-top: 25%; */
-    margin-top: 15%;
-}
+
 #remove {
   color: red;
 }
@@ -42,10 +31,10 @@ form {
 #product-card {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 5% auto;
 }
 
-@media (min-width: 411) {
+@media (min-width: 411px) {
   nav {
     width:100vw;
     margin-right: 0;
@@ -57,16 +46,30 @@ form {
        margin-top: 25%;
   }
 }
-@media(max-width: 375) {
+/* IPHONE X */
+@media(max-width: 375px) {
   nav {
     width: 100vw;
   }
   form {
    margin-top: 25%;
   }
+  footer{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
 }
-/* FORM STYLING  IPAD*/
-@media (min-width:1024) {
+/* Smaller Iphones */
+@media(max-width: 414px) {
+  footer{
+     height: 100vh;
+    width: 100%;
+  }
+}
+
+/* FOR STYLING  IPAD*/
+@media (min-width:1024px) {
   input{
     width: 65%;
   }
@@ -97,10 +100,83 @@ form {
     transform: rotate(360deg);
   }
 }
+ .button-deez {
+   background: '#6B63FF'
+ }
 
-/* width: 58%;
-    height: 32px;
-    padding: 0 11px;
-    margin-top: 51%;
-    margin-left: 12%;
-    margin-right: 37%; */
+
+/* COntainer for login */
+    form{
+    margin-top: 5%;     
+     display: flex;
+    justify-content: center;
+    }
+    
+  .log-card {
+    width: 85%;
+    height: 90%;
+  }
+    /* INPUT */
+    input {
+      margin: 1%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .input100 {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    display: block;
+    width: 80%;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+}
+/* Styling for the svgs*/
+.background-pic-login {
+  margin-top: -2%;    
+  }
+/* LOGIN BUTTON */
+.login100-form-btn {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    border-radius: 25px;
+}
+
+/* Order Section */
+.order-section{
+  height: 75%;
+  margin-bottom: 8%
+}
+.login-input{
+  width: 50%;
+}
+/* Profile Section*/
+.profile {
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 5%;
+}
+
+/* Footer */
+footer {
+   background-color: #333;
+    padding: 50px;
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+footer h5 {
+   color: #ecf0f1;
+}
+.social-links {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2rem;
+  flex-direction: row-reverse;
+}

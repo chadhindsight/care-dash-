@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import actions from '../../services/index';
-import {  MDBBtn } from 'mdbreact';
-import { ReactComponent as Signin } from '../../assets/signin.svg'
+import { MDBRow, MDBInput, MDBBtn } from 'mdbreact';
 
 const Login = (props) => {
-    // REACT HOOKS HERE!
+    // REACT HOOKS
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -12,22 +11,22 @@ const Login = (props) => {
         e.preventDefault()
         console.log(email, password)
         await actions.login({ email, password }).then(user => {
-            console.log(user, 'line 12')
             props.setUser({ ...user.data })
             props.history.push("/profile")
         }).catch((err) => console.log(err));
     }
 
     return (
-        <>
-            <form onSubmit={logInHandler}>
-                <input type="text" name="email" placeholder="username" onChange={e => setEmail(e.target.value)} />
-                <input type="text" name="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <MDBBtn color="default" onClick={logInHandler}>Submit</MDBBtn>
-                <Signin/>
-            </form>
-
-        </>
+        <form onSubmit={logInHandler} >
+            <section className="grey-text" style={{ width: '60%', display: 'flex', flexDirection: 'column' }}>
+                <MDBInput label="Please enter your email" size="lg" group type="email" validate error="wrong"
+                    success="right" onChange={e => setEmail(e.target.value)} />
+                <MDBInput label="Please enter your password" size="lg" group type="password" validate onChange={e => setPassword(e.target.value)} />
+                <MDBRow style={{ justifyContent: 'center' }}>
+                    <MDBBtn color="indigo" onClick={logInHandler}>Login</MDBBtn>
+                </MDBRow>
+            </section>
+        </form>
     );
 };
 

@@ -3,26 +3,25 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('../config/passport');
 
+
 router.post('/signup', (req, res, next) => {
   console.log(req.body.username)
   User.register(req.body, req.body.password)
-    .then((user) => { 
-        req.login(user, function(err,result){
-          res.status(201).json(user)
-        })
+    .then((user) => {
+      req.login(user, function (err, result) {
+        res.status(201).json(user)
+      })
     })
-    .catch((err) => { 
+    .catch((err) => {
       console.log(err)
       res.status(500).json({ err })
     });
 });
 
-
 //return await service.get('/is-logged-in');
-router.get('/is-logged-in', (req, res, next) => {  
+router.get('/is-logged-in', (req, res, next) => {
   res.json(req.user)
 })
-
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
   const { user } = req;
@@ -43,19 +42,21 @@ router.get('/profile', isAuth, (req, res, next) => {
     .catch((err) => res.status(500).json({ err }));
 });
 
-router.post('/profile',isAuth, (req, res, next) => {
+router.post('/profile', isAuth, (req, res, next) => {
   console.log(req.body, "random stuff")
-  User.findByIdAndUpdate({ _id: req.user._id }, { 
-      email: req.body.name, 
-      // pw: req.body.password, 
-      primaryPharmacy: req.body.primaryPharm 
-  }, 
-    { new: true }).then(user =>{ console.log(user)
-    res.status(200).json( user)})
+  User.findByIdAndUpdate({ _id: req.user._id }, {
+    email: req.body.name,
+    // pw: req.body.password, 
+    primaryPharmacy: req.body.primaryPharm
+  },
+    { new: true }).then(user => {
+      console.log(user)
+      res.status(200).json(user)
+    })
 })
 
 
- function isAuth(req, res, next) {
+function isAuth(req, res, next) {
   req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });
 }
 

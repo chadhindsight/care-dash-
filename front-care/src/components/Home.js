@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchBar from './search/SearchBar';
-import actions from '../services/index'
-import {ReactComponent as Doc} from '../assets/doc.svg'
+import {ReactComponent as Doctors} from '../assets/doc.svg'
 
 const Home = (props) => {
     // TODO: add a loader/spinner. While the results 
@@ -10,7 +9,7 @@ const Home = (props) => {
         return (
             <div>
                 <SearchBar getResults={props.getResults} showInfo={props.showInfo} />
-                <Doc style={{ position: 'relative', zIndex: '-1', marginTop: '-5%', width: '80%'}}/>
+                <Doctors style={{ position: 'relative', zIndex: '-1', marginTop: '-5%', width: '80%'}}/>
             </div>
         );
 }
