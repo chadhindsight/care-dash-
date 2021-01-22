@@ -2,4 +2,4 @@
 /front-care/node_modules
 /backend/.env
 node_modules
-
+.env
