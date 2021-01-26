@@ -3,8 +3,6 @@ import SearchBar from './search/SearchBar';
 import { ReactComponent as Doctors } from '../assets/doc.svg'
 
 const Home = (props) => {
-    // TODO: add a loader/spinner. While the results 
-
     //Show confirmation when user submits an order
     return (
         <div>

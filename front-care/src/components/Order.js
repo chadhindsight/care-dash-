@@ -1,7 +1,17 @@
+<<<<<<< HEAD
+import React from 'react';
+import { Modal, Button } from 'antd';
+import actions from '../services/index';
+import { MDBBtn } from "mdbreact";
+import { ReactComponent as Delivery } from '../assets/delivery.svg'
+
+import {Link} from 'react-router-dom';
+=======
 import React, { useState } from 'react';
 // import actions from '../services/index';
 import { MDBBtn, MDBAlert } from "mdbreact";
 import { ReactComponent as DeliveryPic } from '../assets/delivery.svg'
+>>>>>>> c2be9b040ee544f2fa775e00d565899102dc9eb9
 
 const Order = (props) => { 
     // Piece of state that changes when user places an order 
@@ -25,6 +35,16 @@ const Order = (props) => {
     })
 
     return (
+<<<<<<< HEAD
+        <div>
+            <Delivery style={{ position: 'relative', zIndex: '-1', marginBottom: '-5%', width: '50%', height: '50%' }} />
+            <form>
+                <ul>{displayItems}</ul>
+                <MDBBtn className="default" style={{ position: 'relative', marginBottom: '55%'}}
+                onClick={() => props.onOrderSubmit(props.cart) }>Place Order</MDBBtn>
+            </form>
+        </div>
+=======
         <section className="order-section">
             <DeliveryPic style={{ position: 'relative', marginTop: '4%', width: '68%', height: '68%' }}
                 className="background-pic" />
@@ -38,6 +58,7 @@ const Order = (props) => {
             <MDBBtn color="indigo" style={{ position: 'relative' }}
                 onClick={() => onOrderSubmit()}>Place Order</MDBBtn>
         </section>
+>>>>>>> c2be9b040ee544f2fa775e00d565899102dc9eb9
     );
 };
 
