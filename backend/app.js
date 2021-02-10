@@ -9,7 +9,8 @@ const path = require('path');
 const cors = require('cors');
 const session = require('express-session');
 const passport = require('./config/passport');
-// 
+
+// Connection setup for mongo URI
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/care-dash'
 console.log('Connecting DB to ', MONGODB_URI)
 
@@ -27,7 +28,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "https://care-dash.netlify.app"] 
+    origin: ["http://localhost:3000", "https://care-dash.netlify.app"]
   })
 );
 
