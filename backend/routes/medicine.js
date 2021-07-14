@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Medicine = require('../models/Medicine');
-const passport = require('../config/passport');
 require('dotenv').config();
 
 // Search route
