@@ -10,7 +10,7 @@ const cors = require('cors');
 const session = require('express-session');
 const passport = require('./config/passport');
 
-// Connection setup for mongo URI
+// Connection setup for mongo URI.
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/care-dash'
 console.log('Connecting DB to ', MONGODB_URI)
 
